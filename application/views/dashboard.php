@@ -19,7 +19,7 @@
                         <i class="fas fa-user "></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">المستخدمين</span>
+                        <span class="info-box-text"><?=translate('The Users')?></span>
                         <a href="<?= site_url('User') ?>"><span class="info-box-number">
                   <?= $this->fungsi->count_users(); ?>
                 </span></a>
@@ -33,38 +33,6 @@
             <!-- fix for small devices only -->
             <div class="clearfix hidden-md-up"></div>
 
-            <?php
-            // print_r($all_orders->result());
-            ?>
-          <!--  <div class="col-12 col-sm-6 col-md-2">
-                <div class="info-box">
-                    <span class="info-box-icon bg-maroon elevation-1">
-                       <i class="fas fa-archive"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">الأصناف</span>
-                        <a href="<?/*= site_url('Products') */?>">
-                        <span class="info-box-number">
-                <?/*= $this->fungsi->count_product(); */?>
-                </span></a>
-                    </div>
-                </div>
-            </div>-->
-
-            <!--<div class="col-12 col-sm-6 col-md-3" style="display:<?/*= $display */?>;">
-                <div class="info-box mb-3">
-                    <span class="info-box-icon bg-warning elevation-1">
-                    <i class="fas fa-list-ol"></i></span>
-
-                    <div class="info-box-content">
-                        <span class="info-box-text">الطلبات الأونلاين</span>
-                        <a href="<?/*= site_url('Store_orders') */?>">
-                        <span class="info-box-number">
-                             <?/*= $this->fungsi->count_status_store_order(''); */?></span>
-                        </a>
-                    </div>
-                </div>
-            </div>-->
 
             <div class="col-12 col-sm-6 col-md-3" style="display:<?= $display ?>;">
                 <div class="info-box mb-3">
@@ -72,10 +40,10 @@
                     <i class="fas fa-envelope"></i></span>
 
                     <div class="info-box-content">
-                        <span class="info-box-text">الرسائل الجديدة</span>
+                        <span class="info-box-text"><?=translate('The New Messages')?></span>
                         <a href="<?= site_url('Msg/msgs') ?>">
                         <span class="info-box-number">
-                        <?= $this->fungsi->count_new_msg('reading'); ?></span>
+                        <?=$this->fungsi->count_new_msg('reading');?></span>
                         </a>
                     </div>
                     <!-- /.info-box-content -->
@@ -86,7 +54,7 @@
 
             <!-- /.col -->
         </div>
-        <?php ?>
+
 
 
     </div>

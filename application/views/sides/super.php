@@ -5,7 +5,7 @@
             <a href="<?=site_url('Dashboard')?>" class="nav-link <?=$this->uri->segment(1) == 'Dashboard' || $this->uri->segment(1) == '' ? "active" : '' ?>">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                    الرئيسية
+                    <?=translate('The Main Page')?>
                 </p>
             </a>
         </li>
@@ -38,7 +38,7 @@
                 "active " : '' ?> ">
 
                 <i class="nav-icon fas fa-users text-warning"></i>
-                <p> المستخدمين <i class="fas fa-angle-left right "></i>
+                <p> <?=translate('The Users')?> <i class="fas fa-angle-left right "></i>
                     <span class="badge badge-warning right"></span>
                 </p>
             </a>
@@ -47,7 +47,7 @@
                     <a href="<?=site_url('User')?>" class="nav-link  <?=$this->uri->segment(1) == 'User' && $this->uri->segment(2) == '' ?  "active" : '' ?> ">
                         <i class="fas fa-users nav-icon text-info  "></i>
                         <p>
-                            مستخدمي البرنامج  <span class="badge badge-warning right"><?=$this->fungsi->count_users(); ?></span>
+                            <?=translate('Application Users')?>  <span class="badge badge-warning right"><?=$this->fungsi->count_users(); ?></span>
                         </p>
                     </a>
                 </li>
@@ -59,7 +59,7 @@
                 "active " : '' ?> ">
 
                 <i class="nav-icon fas fa-cogs text-warning"></i>
-                <p> أعدادات <i class="fas fa-angle-left right "></i>
+                <p> <?=translate('Settings')?> <i class="fas fa-angle-left right "></i>
                     <span class="badge badge-warning right"></span>
                 </p>
             </a>
@@ -68,7 +68,7 @@
                     <a href="<?=site_url('Config_company')?>" class="nav-link  <?=$this->uri->segment(1) == 'Config_company' && $this->uri->segment(2) == '' ?  "active" : '' ?> ">
                         <i class="fas fa-cogs nav-icon text-info  "></i>
                         <p class="text-success_">
-                          البيانات الاساسية للشركة
+                          <?=translate('Company Main Data')?>
                         </p>
                     </a>
                 </li>
@@ -76,31 +76,38 @@
                     <a href="<?=site_url('About_us_c')?>" class="nav-link  <?=$this->uri->segment(1) == 'About_us_c' && $this->uri->segment(2) == '' ?  "active" : '' ?> ">
                         <i class="fas fa-cogs nav-icon text-info  "></i>
                         <p class="text-success_">
-                          عن الشركة
+                          <?=translate('About Us')?>
                         </p>
                     </a>
                 </li>
             </ul>
         </li>
         <li class="nav-item">
-            <a href="<?=site_url('Banners')?>"
-               class="nav-link <?=$this->uri->segment(1) == 'Banners' ?  "active" : '' ?> ">
-                <i class="nav-icon fas fa-list-ol text-maroon"></i>
-                <p>البانر</p>
+            <a href="<?=site_url('Video_c')?>"
+               class="nav-link <?=$this->uri->segment(1) == 'Video_c' ?  "active" : '' ?> ">
+                <i class="nav-icon fas fa-video text-maroon"></i>
+                <p><?=translate('Video Banner')?></p>
             </a>
         </li>
         <li class="nav-item">
-            <a href="<?=site_url('Client')?>"
-               class="nav-link <?=$this->uri->segment(1) == 'Client' ?  "active" : '' ?> ">
+            <a href="<?=site_url('Jobs_c')?>"
+               class="nav-link <?=$this->uri->segment(1) == 'Jobs_c' ?  "active" : '' ?> ">
+                <i class="nav-icon fas fa-list-ol text-maroon"></i>
+                <p><?=translate('Employment Management')?></p>
+            </a>
+        </li>
+       <!-- <li class="nav-item">
+            <a href="<?/*=site_url('Client')*/?>"
+               class="nav-link <?/*=$this->uri->segment(1) == 'Client' ?  "active" : '' */?> ">
                 <i class="nav-icon fas fa-users text-success"></i>
                 <p>عملاء الشركة</p>
             </a>
-        </li>
+        </li>-->
         <li class="nav-item">
             <a href="<?=site_url('Team')?>"
                class="nav-link <?=$this->uri->segment(1) == 'Team' ?  "active" : '' ?> ">
                 <i class="nav-icon fas fa-users text-success"></i>
-                <p>فريق العمل </p>
+                <p><?=translate('Our Team')?> </p>
             </a>
         </li>
       <!--  <li class="nav-item">

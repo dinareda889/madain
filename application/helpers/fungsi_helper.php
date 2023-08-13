@@ -66,4 +66,5 @@ function translate($word = '')
     }
 }
 
+
 ?>

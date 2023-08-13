@@ -79,8 +79,9 @@
     <link href="<?= base_url() ?>assets/plugins/form-validator/theme-defaultar.css" rel="stylesheet">
 
     <link rel="stylesheet" href="<?= base_url() . 'assets/' ?>sweet_alert1/sweetalert.css">
-    <link href="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/css/bootstrap4-toggle.min.css"
-          rel="stylesheet">
+    <link rel="stylesheet" href="<?= base_url() . 'assets/' ?>sweet_alert2/sweetalert2.css">
+    <link rel="stylesheet" href="<?= base_url() . 'assets/' ?>sweet_alert2/sweetalert2.min.css">
+
 </head>
 <body class="hold-transition sidebar-mini text-sm layout-fixed <?= $this->uri->segment(1) == 'Sale' ? 'sidebar-collapse' : null ?>">
 <!-- Site wrapper -->
@@ -257,7 +258,7 @@
         <!-- Main content -->
         <?php echo $contents ?>
         <!-- /.content -->
-        <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+
 
         <?php
         if (isset($_SESSION['message'])) {
@@ -327,8 +328,10 @@
 <script src="<?= base_url() ?>assets/plugins/jquery-mapael/maps/usa_states.min.js"></script>
 <!-- ChartJS -->
 <script src="<?= base_url() ?>assets/plugins/chart.js/Chart.min.js"></script>
+<script  src="<?= base_url() . 'assets/' ?>sweet_alert2/sweetalert2.js"></script>
+<script  src="<?= base_url() . 'assets/' ?>sweet_alert2/sweetalert2.all.js"></script>
+<script  src="<?= base_url() . 'assets/' ?>sweet_alert2/sweetalert2.all.min.js"></script>
 <!--<script src="--><? //= base_url() ?><!--assets/dist/js/pages/dashboard2.js"></script>-->
-<script src="https://cdn.jsdelivr.net/gh/gitbrent/bootstrap4-toggle@3.6.1/js/bootstrap4-toggle.min.js"></script>
 
 <script>
     /* $(document).ready(function() {
