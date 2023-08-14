@@ -68,6 +68,33 @@ function translate($word = '')
         return ucwords(str_replace('_', ' ', $word));
     }
 }
+function translate_web($word = '')
+{
+    $CI = &get_instance();
+    if ($CI->session->has_userdata('set_lang')) {
+        $set_lang = $CI->session->userdata('set_lang');
+    } else {
+        $set_lang = 'english';
+    }
+    if ($set_lang == '') {
+        $set_lang = 'english';
+    }
+    $query = $CI->db->get_where('languages', array('word' => $word));
+    if ($query->num_rows() > 0) {
+        if (isset($query->row()->$set_lang) && $query->row()->$set_lang != '') {
+            return $query->row()->$set_lang;
+        } else {
+            return $query->row()->english;
+        }
+    } else {
+        $arrayData = array(
+            'word' => $word,
+            'english' => ucwords(str_replace('_', ' ', $word)),
+        );
+        $CI->db->insert('languages', $arrayData);
+        return ucwords(str_replace('_', ' ', $word));
+    }
+}
 
 
 
