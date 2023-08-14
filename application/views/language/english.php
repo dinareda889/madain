@@ -2,15 +2,13 @@
     <div class="container-fluid">
         <div class="card">
             <div class="card-header">
-                <h3 class="card-title"><?= translate('Translation_arabic') ?></h3>
-                <div class="float-right">
+                <h3 class="card-title"><?= translate('Translation_english') ?></h3>
 
-                </div>
             </div>
             <!-- /.card-header -->
             <div class="card-body" style="overflow-x: scroll;width: 100%;">
 
-                <?php echo form_open('translations/arabic', array('class' => 'validate  ')); ?>
+                <?php echo form_open('translations/english', array('class' => 'validate  ')); ?>
                 <input type="hidden" name="submit" value="update">
                 <div class="panel-body">
                     <table  id="table1" class="table table-bordered table-condensed mb-none table-export">
@@ -29,7 +27,7 @@
                         $words = $query_language->result();
                         foreach ($words as $row) {
                             ?>
-                          <!--  <input type="hidden" name="word_<?/*= $row->word */?>" id="word_<?/*= $row->word */?>"
+                            <!--  <input type="hidden" name="word_<?/*= $row->word */?>" id="word_<?/*= $row->word */?>"
                                    value="<?/*= $row->arabic */?>" />-->
                             <tr>
                                 <td><?php echo $count++; ?></td>
@@ -44,7 +42,7 @@
 										</span>
                                             <input type="text" placeholder="Set Word Translation"
                                                    name="word_<?= $row->word ?>" oninput="$('#word_<?= $row->word ?>').val(this.value)"
-                                                   value="<?= $row->arabic ?>" class="form-control arabic-word"/>
+                                                   value="<?= $row->english ?>" class="form-control arabic-word"/>
                                         </div>
                                     </div>
                                 </td>
@@ -56,7 +54,7 @@
                 <div class="row">
                     <div class="col-md-offset-10 col-md-2">
                         <button class="btn btn btn-default btn-block" name="submit" value="update"><i
-                                    class="fas fa-edit"></i> <?= translate('update') ?></button>
+                                class="fas fa-edit"></i> <?= translate('update') ?></button>
                     </div>
                 </div>
                 <?php echo form_close(); ?>
