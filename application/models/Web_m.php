@@ -1,0 +1,1 @@
+<?phpclass Web_m extends CI_Model{}?>

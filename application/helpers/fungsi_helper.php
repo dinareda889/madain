@@ -70,8 +70,6 @@ function translate($word = '')
 }
 
 
-<<<<<<< HEAD
-=======
 function thumb($data, $filepath = false)
 {
     $CI =& get_instance();
@@ -147,5 +145,4 @@ function upload_image($file_name, $filepath = false)
     }
 }
 
->>>>>>> 37a56a764fd6b2ef8ab35a2ff431f50c1e7b2804
 ?>

@@ -11,15 +11,13 @@
                     <thead>
                     <tr>
                         <th style="width: 5%">#</th>
-                        <th>تاريخ الرسالة</th>
+                        <th><?=translate('The Date of Message')?></th>
                         <!--                        <th>الإسم</th>-->
 
-                        <th> عنوان الرسالة</th>
-                        <th>الجوال</th>
-                        <th>الإيميل</th>
-
-
-                        <th>الإجراء</th>
+                        <th> <?=translate('The Title of Message')?></th>
+                        <th><?=translate('The Phone Number')?></th>
+                        <th><?=translate('The Email Address')?></th>
+                        <th><?=translate('Action')?></th>
 
                     </tr>
                     </thead>
@@ -39,17 +37,18 @@
     <div class="modal-dialog modal_details modal-lg">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title"> تفاصيل الرسالة</h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
+                <h4 class="modal-title"> <?=translate('Message Details')?></h4>
+
             </div>
             <div class="modal-body"  id="details">
 
             </div>
             <div class="modal-footer justify-content-between">
 
-                <button type="button" class="btn btn-danger" data-dismiss="modal">إغلاق</button>
+                <button type="button" class="btn btn-danger" data-dismiss="modal"><?=translate('Close')?></button>
             </div>
         </div>
         <!-- /.modal-content -->
@@ -63,7 +62,7 @@
     $(document).ready(function() {
         $('#table1').DataTable({
             "language": {
-                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/Arabic.json"
+                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json"
             },
             "processing": true,
             "serverSide": true,
@@ -89,10 +88,6 @@
 
 
                 }
-            ],
-            "buttons": [
-                { "extend": 'excel', "text": ' شيت اكسيل' },
-                { "extend": 'copy', "text": 'نسخ' }
             ],
             "dom": 'Bfrtip',
             "order" : []

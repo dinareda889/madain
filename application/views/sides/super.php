@@ -183,34 +183,34 @@
             </ul>
         </li>
    -->
-       <!-- <li class="nav-item has-treeview  <?/*=$this->uri->segment(1) == 'Msg'   ?
-            "menu-open " : '' */?> ">
-            <a href="#" class="nav-link <?/*=($this->uri->segment(1) == 'Msg' || $this->uri->segment(2) == 'msgs_read'|| $this->uri->segment(2) == 'msgs') ?
-                "active " : '' */?> ">
+        <li class="nav-item has-treeview  <?=$this->uri->segment(1) == 'Msg'   ?
+            "menu-open " : '' ?> ">
+            <a href="#" class="nav-link <?=($this->uri->segment(1) == 'Msg' || $this->uri->segment(2) == 'msgs_read'|| $this->uri->segment(2) == 'msgs') ?
+                "active " : '' ?> ">
 
                 <i class="nav-icon fas fa-envelope text-warning"></i>
-                <p> الرسائل والشكاوي <i class="fas fa-angle-left right "></i>
+                <p> <?=translate('Messages and Complaints')?> <i class="fas fa-angle-left right "></i>
                     <span class="badge badge-warning right"></span>
                 </p>
             </a>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="<?/*=site_url('Msg/msgs')*/?>" class="nav-link  <?/*=$this->uri->segment(1) == 'Msg' && $this->uri->segment(2) == 'msgs' ?  "active" : '' */?> ">
+                    <a href="<?=site_url('Msg/msgs')?>" class="nav-link  <?=$this->uri->segment(1) == 'Msg' && $this->uri->segment(2) == 'msgs' ?  "active" : '' ?> ">
                         <i class="far fa-envelope  nav-icon  text-warning"></i>
-                        <p>الرسائل الغير مقروءة  </p>  <span class="badge badge-warning right"><?/*=$this->fungsi->count_new_msg('reading'); */?></span>
+                        <p><?=translate('Unread Messages')?></p>  <span class="badge badge-warning right"><?=$this->fungsi->count_new_msg('reading'); ?></span>
                     </a>
                 </li>
             </ul>
             <ul class="nav nav-treeview">
                 <li class="nav-item">
-                    <a href="<?/*=site_url('Msg/msgs_read')*/?>" class="nav-link  <?/*=$this->uri->segment(1) == 'Msg' && $this->uri->segment(2) == 'msgs_read' ?  "active" : '' */?> ">
+                    <a href="<?=site_url('Msg/msgs_read')?>" class="nav-link  <?=$this->uri->segment(1) == 'Msg' && $this->uri->segment(2) == 'msgs_read' ?  "active" : '' ?> ">
                         <i class="far fa-envelope  nav-icon  text-warning"></i>
-                        <p>الرسائل  المقروءة  </p>
+                        <p><?=translate('Read Messages')?></p>
                     </a>
                 </li>
             </ul>
         </li>
--->
+
        <!-- <li class="nav-item has-treeview  <?/*=$this->uri->segment(1) == 'Price_list/price_lists'   ?
             "menu-open " : '' */?> ">
             <a href="#" class="nav-link <?/*=($this->uri->segment(1) == 'Price_list' || $this->uri->segment(2) == 'price_lists'|| $this->uri->segment(2) == 'price_lists_read') ?

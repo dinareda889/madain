@@ -56,8 +56,8 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 */
 
-/*$route['default_controller'] = 'Web';*/
-$route['default_controller'] = 'Dashboard';
+$route['default_controller'] = 'Web';
+/*$route['default_controller'] = 'Dashboard';*/
 /*$route['404_override'] = 'Web';*/
 $route['404_override'] = 'Dashboard';
 $route['translate_uri_dashes'] = true;
