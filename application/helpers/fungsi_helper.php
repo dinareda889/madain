@@ -70,6 +70,7 @@ function translate($word = '')
 }
 
 
+
 function thumb($data, $filepath = false)
 {
     $CI =& get_instance();
