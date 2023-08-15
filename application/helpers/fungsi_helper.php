@@ -62,6 +62,7 @@ function translate($word = '')
     } else {
         $arrayData = array(
             'word' => $word,
+            'type_word' => 'dash',
             'english' => ucwords(str_replace('_', ' ', $word)),
         );
         $CI->db->insert('languages', $arrayData);
@@ -89,6 +90,7 @@ function translate_web($word = '')
     } else {
         $arrayData = array(
             'word' => $word,
+            'type_word' => 'web',
             'english' => ucwords(str_replace('_', ' ', $word)),
         );
         $CI->db->insert('languages', $arrayData);
