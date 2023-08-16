@@ -83,11 +83,29 @@
         <div class="row">
             <div class="col-lg-6 align-self-center">
                 <div class="about-us-img-wrap about-img-left">
-                    <img src="<?= base_url() . 'assets_web/img' ?>/7.png" alt="About Us Image">
+                    <img src="<?php if (!empty($this->company_data->about_image) && (file_exists('uploads/main/' . $this->company_data->about_image))) {
+
+                        echo base_url() . "uploads/main/" .$this->company_data->about_image;
+
+                    } else {
+
+                        echo base_url() . 'uploads/defult_image.jpg';
+
+
+                    } ?>" alt="About Us Image">
                     <div class="about-us-img-info  about-us-img-info-3">
 
                         <div class="ltn__video-img ltn__animation-pulse1">
-                            <img src="<?= base_url() . 'assets_web/img' ?>/8.png" alt="images">
+                            <img src="<?php if (!empty($this->company_data->about_image) && (file_exists('uploads/main/' . $this->company_data->about_image))) {
+
+                                echo base_url() . "uploads/main/" .$this->company_data->about_image;
+
+                            } else {
+
+                                echo base_url() . 'uploads/defult_image.jpg';
+
+
+                            } ?>" alt="images">
                         </div>
                     </div>
                 </div>
@@ -95,11 +113,17 @@
             <div class="col-lg-6 align-self-center">
                 <div class="about-us-info-wrap">
                     <div class="section-title-area ltn__section-title-2--- mb-20">
-                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color">About Us</h6>
-                        <h1 class="section-title">Welcome to Mada’in. Setting the benchmark
-                            for tomorrow’s living.<span>.</span></h1>
-                        <p>At Mada’in Properties PJSC, we exist to create innovative, boutique properties that surpass
-                            all expectations in detail, design and 5-star experiences.</p>
+                        <h6 class="section-subtitle section-subtitle-2 ltn__secondary-color"><?=translate_web('About_us')?></h6>
+                        <h1 class="section-title"><?=translate_web('Welcome_To_Mada’in._Setting_The_Benchmark_For_Tomorrow’s_Living..')?></h1>
+                        <p><?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
+                          echo $about_us[0]->about_us_en;
+                        }elseif($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')){
+                                echo $about_us[0]->about_us_ru;
+                            }else{
+                                echo $about_us[0]->about_us_ar;
+                            }
+                        ?>
+                        </p>
                     </div>
                     <ul class="about-us-list clearfix">
                         <li>
