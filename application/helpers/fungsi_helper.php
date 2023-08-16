@@ -174,5 +174,30 @@ function upload_image($file_name, $filepath = false)
         return $datafile['file_name'];
     }
 }
+function get_by($table, $where_arr = false, $select = false)
+{
+    $CI =& get_instance();
+    if (!empty($where_arr)) {
+        $CI->db->where($where_arr);
+    }
+    $query = $CI->db->get($table);
+    if ($query->num_rows() > 0) {
+        if (!empty($select) && $select != 1) {
+            return $query->row()->$select;
+        } else {
+            if ($select == 1) {
+                return $query->row();
+            } else {
+                return $query->result();
+            }
+        }
+    } else {
+        return false;
+    }
+}
 
+function access_denied()
+{
+    redirect(site_url('Web'));
+}
 ?>

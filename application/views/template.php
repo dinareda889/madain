@@ -36,21 +36,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?=$company_image?>">
     <!--<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/dataTables.bootstrap4.min.css">-->
 
-    <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/dataTables.bootstrap4.min-ar.css">
-    <?php
-    if ($set_lang == 'english') {
-        ?>
-        <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/dataTables.bootstrap4.min-en.css">
+<!--    <link rel="stylesheet" href="--><?//= base_url() ?><!--assets/dist/css/dataTables.bootstrap4.min-ar.css">-->
 
-    <?php } else { ?>
-        <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/dataTables.bootstrap4.min-ar.css">
-        <style>
-            .bootstrap-select.bs-container .dropdown-menu {
-                z-index: 1060;
-                left: auto !important;
-            }
-        </style>
-    <?php } ?>
 
 
     <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.6.5/css/buttons.bootstrap4.min.css">
@@ -75,9 +62,27 @@
     <? //=base_url()?><!--/assets/login/img/favicon.png">-->
     <!-- Bootstrap 4 RTL -->
     <!-- Custom style for RTL -->
-    <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/custom-ar.css">
-    <link href="<?= base_url() ?>assets/plugins/form-validator/theme-defaultar.css" rel="stylesheet">
+    <?php
+    if ($set_lang == 'english') {
+        ?>
+        <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/dataTables.bootstrap4.min-en.css">
+        <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/custom-en.css">
+        <link href="<?= base_url() ?>assets/plugins/form-validator/theme-defaulten.css" rel="stylesheet">
 
+
+    <?php } else { ?>
+        <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/dataTables.bootstrap4.min-ar.css">
+        <link rel="stylesheet" href="<?= base_url() ?>assets/dist/css/custom-ar.css">
+        <link href="<?= base_url() ?>assets/plugins/form-validator/theme-defaultar.css" rel="stylesheet">
+
+
+        <style>
+            .bootstrap-select.bs-container .dropdown-menu {
+                z-index: 1060;
+                left: auto !important;
+            }
+        </style>
+    <?php } ?>
     <link rel="stylesheet" href="<?= base_url() . 'assets/' ?>sweet_alert1/sweetalert.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets/' ?>sweet_alert2/sweetalert2.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets/' ?>sweet_alert2/sweetalert2.min.css">
