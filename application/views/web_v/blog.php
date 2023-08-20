@@ -34,20 +34,20 @@
                 if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
                     switch ($_SESSION['site_lang']) {
                         case 'arabic':
-                            $product_name = 'name_ar';
-                            $product_description = 'description_ar';
+                            $name = 'name_ar';
+                            $description = 'description_ar';
                             break;
                         case 'english':
-                            $product_name = 'name_en';
-                            $product_description = 'description_en';
+                            $name = 'name_en';
+                            $description = 'description_en';
                             break;
                         case 'russian':
-                            $product_name = 'name_ru';
-                            $product_description = 'description_ru';
+                            $name = 'name_ru';
+                            $description = 'description_ru';
                             break;
                         default:
-                            $product_name = 'name_en';
-                            $product_description = 'description_en';
+                            $name = 'name_en';
+                            $description = 'description_en';
                             break;
                     }
                 }
@@ -76,9 +76,9 @@
 
                             <div class="blog-body">
                                 <h4 class="bl-title"><a
-                                            href="<?= base_url() . 'Web/one_blog/' . base64_encode($blog->id) ?>"><?= $blog->$product_name ?></a>
+                                            href="<?= base_url() . 'Web/one_blog/' . base64_encode($blog->id) ?>"><?= $blog->$name ?></a>
                                 </h4>
-                                <p><?= word_limiter($blog->$product_description, 30, '...') ?> </p>
+                                <p><?= word_limiter($blog->$description, 30, '...') ?> </p>
                                 <a href="<?= base_url() . 'Web/one_blog/' . base64_encode($blog->id) ?>"
                                    class="bl-continue"><?= translate_web('Read_more') ?> <i
                                             class="fas fa-arrow-right"></i></a>

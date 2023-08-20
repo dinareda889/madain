@@ -23,11 +23,58 @@
     <!-- Custom CSS -->
     <link href="<?= base_url() . 'assets_web/css' ?>/styles.css" rel="stylesheet">
     <link href="<?= base_url() . 'assets_web/css' ?>/responsive.css" rel="stylesheet">
+<!--    <link href="--><?//= base_url() . 'assets_web/fontawesome/css/' ?><!--all.css" rel="stylesheet">-->
+
+    <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets_web/jssocials' ?>/jssocials.css" />
+    <link rel="stylesheet" type="text/css" href="<?= base_url() . 'assets_web/jssocials' ?>/jssocials-theme-plain.css" />
 
     <!-- <link href="<?= base_url() . 'assets_web/css' ?>/Style-rtl.css" rel="stylesheet"> -->
 </head>
 
 <body>
+
+<!-- .noti -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.css"
+      integrity="sha256-p+PhKJEDqN9f5n04H+wNtGonV2pTXGmB4Zr7PZ3lJ/w=" crossorigin="anonymous"/>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.js"
+        integrity="sha256-xzc5zu2WQtJgvCwRGTXiHny3T+KQZa6tQF24RVDRlL0=" crossorigin="anonymous"></script>
+<style>
+    .btn-space {
+        margin: 5px;
+    }
+    .table-bordered.dataTable th, table.table-bordered.dataTable td {
+        border-left-width: 1px;
+    }
+</style>
+<span id="message">
+
+</span>
+<script>
+    <?php if($this->session->flashdata('success') || $this->session->flashdata('error')){
+    $msg = $this->session->flashdata('success') ? 'success' : 'error';
+    /*            print_r($this->session->flashdata());*/
+    ?>
+    let n = new Noty({
+        theme: 'metroui'
+        , text: '<?= $this->session->flashdata($msg) ?>'
+        , layout: 'topRight'
+        , type: "<?= $msg ?>"
+        , timeout: 1500
+        , killer: true
+    });
+    n.show();
+    <?php } ?>
+</script>
+<style>
+    .jssocials-share-link:hover, .jssocials-share-link:focus, .jssocials-share-link:active {
+        border: none;
+        color: #9b6505;
+    }
+    .jssocials-share-link {
+
+        border-radius: unset;
+        border: none;
+</style>
 <div id="preloader">
     <div class="preloader"><span></span><span></span></div>
 </div>
@@ -317,6 +364,7 @@
 <script src="<?= base_url() . 'assets_web/js' ?>/lightbox.js"></script>
 <script src="<?= base_url() . 'assets_web/js' ?>/imagesloaded.js"></script>
 <script src="<?= base_url() . 'assets_web/js' ?>/custom.js"></script>
+
 <script>
     $('#Types').select2({
         placeholder: "<?=translate_web('Type')?>",
@@ -332,5 +380,24 @@
     });
 </script>
 
+<!--<script defer src="--><?//= base_url() . 'assets_web/fontawesome/js/' ?><!--/all.js"></script>-->
+
+<script src="<?= base_url() . 'assets_web/jssocials' ?>/jssocials.js"></script>
+<script>
+    var shares = (typeof window.orientation !== "undefined" ? [ "twitter", "facebook", "linkedin", "whatsapp","telegram","messenger"] : [ "twitter", "facebook", "linkedin", "whatsapp","telegram","messenger"]);
+    var title_page=$(document).find("title").text();
+    var jsSocials;
+    $(document).ready(function() {
+
+        jsSocials= $("#share").jsSocials({
+            url: decodeURIComponent(window.location.href),
+            showCount: false,
+            showLabel: false,
+            shareIn: "popup",
+            text: title_page,
+            shares: shares,
+        });
+    });
+</script>
 </body>
 </html>

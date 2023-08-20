@@ -50,57 +50,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 
-/*
-$route['default_controller'] = 'dashboard';
-$route['404_override'] = '';
-$route['translate_uri_dashes'] = FALSE;
-*/
-
 $route['default_controller'] = 'Web';
 /*$route['default_controller'] = 'Dashboard';*/
 /*$route['404_override'] = 'Web';*/
 
-$route['404_override'] = 'Web';
+$route['Success'] = 'Api/Success';
 
-$route['blogs'] = 'Web/blogs';
+/*----------------------- route omnia -------------------------*/
+
+$route['blogs'] = "Web/blogs";
+$route['blogs/(:num)'] = "Web/blogs/$1";
+$route['one_blog/(:any)'] = "Web/one_blog/$1";
+
+$route['projects'] = "Web/projects";
+$route['projects/(:num)'] = "Web/projects/$1";
+$route['one_project/(:any)'] = "Web/one_project/$1";
 $route['about_us'] = 'Web/about_us';
 $route['contact_us'] = 'Web/contact_us';
-$route['one_blog/(:any)'] = 'Web/one_blog/$1';
 
-$route['translate_uri_dashes'] = true;
 
-/*
-$route['about_us'] = 'Web/about_us';
-$route['services'] = 'Web/services';
-
-$route['launch_project'] = 'Web/launch_project';
-$route['services_details/(:num)'] = 'Web/services_details/$1';
-$route['works/(:any)'] = 'Web/all_products/$1';
-$route['all_works/(:any)'] = 'Web/all_works/$1';
-$route['products/(:any)'] = 'Web/jobs/$1';
-$route['products/(:num)/(:num)'] = 'Web/jobs/$1/$1';
-$route['product_details/(:any)'] = 'Web/product_details/$1';
-$route['services_details/(:any)'] = 'Web/services_details/$1';
-$route['contact'] = 'Web/contact';
-//$route['price_list'] = 'Web/price_list';
-$route['subscription'] = 'Web/subscription';
-*/
-
-/****************************************************/
-/*
-$route['Customer/add'] = 'Pelanggan/add';
-$route['Customer/process'] = 'Pelanggan/process';
-$route['Customer/edit/(:num)'] = 'Pelanggan/edit/$1';
-$route['Customer/del/(:num)'] = 'Pelanggan/del/$1';
-
-$route['Stock/in'] = 'Stock/stock_in_data';
-$route['Stock/in/add'] = 'Stock/stock_in_add';
-$route['Stock/in/del/(:num)/(:num)'] = 'Stock/stock_in_del';
-
-$route['Stock/out'] = 'Stock/stock_out_data';
-$route['Stock/out/add'] = 'Stock/stock_out_add';
-$route['Stock/out/del/(:num)/(:num)'] = 'Stock/stock_out_del';
-
-*/
-$route['Success'] = 'Api/Success';
 
