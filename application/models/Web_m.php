@@ -1,1 +1,1 @@
-<?phpclass Web_m extends CI_Model{}?>
+<?phpclass Web_m extends CI_Model{    public function get_about_us($id = null)    {        $this->db->select('tbl_about_us.*');        $this->db->from('tbl_about_us');        if ($id != null) {            $this->db->where('id', $id);        }        $this->db->order_by('id','desc');        $query = $this->db->get();        return $query->result();    }}?>
