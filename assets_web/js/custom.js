@@ -224,7 +224,7 @@ $(".ba-we-love-subscribers-fab").click(function() {
 		]
 	  });
 
-	$('#Types').select2({
+	/*$('#Types').select2({
 		placeholder: "Type",
 		allowClear: true
 	}); 
@@ -235,7 +235,8 @@ $(".ba-we-love-subscribers-fab").click(function() {
 	$('#location').select2({
 		placeholder: "AED 750K - AED 1M",
 		allowClear: true
-	});
+	});*/
+
 	$('#Status').select2({
 		placeholder: "Marital Status",
 		allowClear: true

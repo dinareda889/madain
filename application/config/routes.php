@@ -59,13 +59,20 @@ $route['translate_uri_dashes'] = FALSE;
 $route['default_controller'] = 'Web';
 /*$route['default_controller'] = 'Dashboard';*/
 /*$route['404_override'] = 'Web';*/
-$route['404_override'] = 'Dashboard';
+
+$route['404_override'] = 'Web';
+
+$route['blogs'] = 'Web/blogs';
+$route['about_us'] = 'Web/about_us';
+$route['contact_us'] = 'Web/contact_us';
+$route['one_blog/(:any)'] = 'Web/one_blog/$1';
+
 $route['translate_uri_dashes'] = true;
 
 /*
 $route['about_us'] = 'Web/about_us';
 $route['services'] = 'Web/services';
-$route['clients'] = 'Web/clients';
+
 $route['launch_project'] = 'Web/launch_project';
 $route['services_details/(:num)'] = 'Web/services_details/$1';
 $route['works/(:any)'] = 'Web/all_products/$1';

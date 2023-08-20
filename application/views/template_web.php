@@ -51,20 +51,20 @@
                 </div>
                 <div class="nav-menus-wrapper" style="transition-property: none;">
                     <ul class="nav-menu">
-                        <li class="active"><a href="index.html">Home</a></li>
+                        <li class="active"><a href="<?=base_url()?>"><?=translate_web('Home')?></a></li>
 
-                        <li><a href="about-us.html">About</a></li>
+                        <li><a href="<?=base_url()?>about_us"><?=translate_web('About')?></a></li>
 
-                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="<?=base_url()?>projects"><?=translate_web('Projects')?></a></li>
 
-                        <li><a href="Blog.html">Blog</a></li>
+                        <li><a href="<?=base_url()?>blogs"><?=translate_web('Blog')?></a></li>
 
-                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="<?=base_url()?>contact_us"><?=translate_web('Contact_Us')?></a></li>
 
-                        <li><a href="#!">English <span class="submenu-indicator"></span></a>
+                        <li><a href="#!"><?=translate_web('English')?> <span class="submenu-indicator"></span></a>
                             <ul class="nav-dropdown nav-submenu">
-                                <li><a href="#!">Arabic</a></li>
-                                <li><a href="#!">Russian</a></li>
+                                <li><a href="#!"><?=translate_web('Arabic')?></a></li>
+                                <li><a href="#!"><?=translate_web('Russian')?></a></li>
                             </ul>
 
                         </li>
@@ -317,7 +317,20 @@
 <script src="<?= base_url() . 'assets_web/js' ?>/lightbox.js"></script>
 <script src="<?= base_url() . 'assets_web/js' ?>/imagesloaded.js"></script>
 <script src="<?= base_url() . 'assets_web/js' ?>/custom.js"></script>
-
+<script>
+    $('#Types').select2({
+        placeholder: "<?=translate_web('Type')?>",
+        allowClear: true
+    });
+    $('#ptypes').select2({
+        placeholder: "<?=translate_web('Bedrooms')?>",
+        allowClear: true
+    });
+    $('#location').select2({
+        placeholder: "<?=translate_web('AED_750K_-_AED_1M')?>",
+        allowClear: true
+    });
+</script>
 
 </body>
 </html>

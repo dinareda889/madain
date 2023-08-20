@@ -61,24 +61,25 @@ class Video_m extends CI_Model
         $query = $this->db->get();
         return $query;
     }
-    public function add_company_stats($post)
+    public function add_company_stats($post,$video_link)
     {
-        $link =explode('https://www.youtube.com/watch?v=',$post['video_link']);
+/*        $link =explode('https://www.youtube.com/watch?v=',$post['video_link']);*/
         $params = [
             'date' => strtotime($post['date']),
             'date_ar' => $post['date'],
-            'video_link' => $link[1]
+            'video_link' => $video_link
         ];
         $this->db->insert('tbl_video', $params);
     }
-    public function edit_company_stats($post)
+    public function edit_company_stats($post,$video_link)
     {
-        $link =explode('https://www.youtube.com/watch?v=',$post['video_link']);
         $params = [
             'date' => strtotime($post['date']),
-            'date_ar' => $post['date'],
-            'video_link' => $link[1]
+            'date_ar' => $post['date']
         ];
+        if(!empty($video_link)){
+            $params['video_link']=  $video_link;
+        }
         $this->db->where('id', $post['id']);
         $this->db->update('tbl_video', $params);
     }

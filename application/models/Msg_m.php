@@ -138,7 +138,7 @@ class Msg_m extends CI_Model
         $data['msg_title']= $this->input->post('name') ;
         $data['email']= $this->input->post('email') ;
         $data['user_phone']= $this->input->post('phone') ;
-        $data['msg_content']= $this->input->post('msg_content') ;
+        $data['msg_content']= $this->input->post('message') ;
 
         $data['msg_time']  = time();
         $data['msg_date']  = date('Y-m-d');

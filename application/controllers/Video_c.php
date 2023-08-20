@@ -14,6 +14,23 @@ class Video_c extends CI_Controller
         $data['title'] = translate('About company');
         $this->template->load('template', 'video_v/video_data', $data);
     }
+    public function upload_video($file_name,$folder_name){
+        $config['upload_path'] = 'uploads/' . $folder_name;
+        $config['allowed_types'] = 'wmv|mp4|avi|mov';
+        $config['max_size'] = '100000024*8';
+        $config['max_filename'] = '255';
+        $config['encrypt_name'] = true;
+        $this->load->library('upload', $config);
+        $this->upload->initialize($config);
+        if (!$this->upload->do_upload($file_name)) {
+            $errors = $this->upload->display_errors();
+            return false;
+        } else {
+            $datafile = $this->upload->data();
+//            echo '<br>'. $datafile['file_name'];
+            return $datafile['file_name'];
+        }
+    }
     function get_ajax_company_stats()
     {
         $list = $this->Video_m->get_datatables_company_stats();
@@ -24,7 +41,12 @@ class Video_c extends CI_Controller
             $row = array();
             $row[] = $no . ".";
             $row[] = $item->date_ar;
-            $row[] ='<a class="fa fa-link"  href="https://www.youtube.com/watch?v='.$item->video_link.'" target="_blank"></a>';
+            $row[] ='
+ <a href="#modal_details" data-toggle="modal" title="'.translate('The_Video_Link').'" 
+                        onclick="get_load_details('.$item->id.')" class="btn btn-warning btn-sm"> 
+
+                         <i class="fa fa-link" style="color: white;"></i></a>
+';
 //            $row[] = $item->description;
             $row[] = '
             <div class="btn-block  btn-group-sm">
@@ -61,7 +83,7 @@ class Video_c extends CI_Controller
         $id = $this->input->post('id');
         //$data['all_details'] = $this->Video_m->get_load_details($id)[0];
         $data['all_details'] = $this->Video_m->get($id)->row();
-        $this->load->view('video/load_details_page', $data);
+        $this->load->view('video_v/load_details_page', $data);
     }
     /****************************************************************/
     public function thumb($data, $folder_name)
@@ -101,8 +123,10 @@ class Video_c extends CI_Controller
         $this->load->library(array('form_validation'));
 
         $this->form_validation->set_rules('date',translate('The Date'), 'required');
-        $this->form_validation->set_rules('video_link', translate('The Video link'), 'required|callback_check_youtube');
-
+        if (empty($_FILES['video_link']['name']))
+        {
+            $this->form_validation->set_rules('video_link', translate('The Video link'), 'required');
+        }
         if ($this->form_validation->run() == FALSE) {
             $company_stats = new stdClass();
             $company_stats->id = null;
@@ -117,7 +141,8 @@ class Video_c extends CI_Controller
         } else {
             $post = $this->input->post(null, TRUE);
             if (isset($_POST['add'])) {
-                $this->Video_m->add_company_stats($post);
+                $video_link = $this->upload_video("video_link", 'videos');
+                $this->Video_m->add_company_stats($post,$video_link);
                 if ($this->db->affected_rows() > 0) {
                     $this->session->set_flashdata('sukses',translate('Process Done Successfully'));
                 }
@@ -130,8 +155,6 @@ class Video_c extends CI_Controller
         $this->load->helper(array('form', 'url'));
         $this->load->library('form_validation');
         $this->form_validation->set_rules('date',translate('The Date'), 'required');
-        $this->form_validation->set_rules('video_link', translate('The Video link'), 'required|callback_check_youtube');
-
         if ($this->form_validation->run() == FALSE) {
             $query = $this->Video_m->get($id);
             if ($query->num_rows() > 0) {
@@ -147,7 +170,9 @@ class Video_c extends CI_Controller
         } else {
             $post = $this->input->post(null, TRUE);
             if (isset($_POST['add'])) {
-                $this->Video_m->edit_company_stats($post);
+                $video_link = $this->upload_video("video_link", 'videos');
+
+                $this->Video_m->edit_company_stats($post,$video_link);
             }
             if ($this->db->affected_rows() > 0) {
                 $this->session->set_flashdata('sukses',translate('Process Done Successfully'));
