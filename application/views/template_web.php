@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <?php
+    if ($this->session->has_userdata('set_lang')) {
+        $set_lang = $this->session->userdata('set_lang');
+    } else {
+        $set_lang = 'english';
+    }
+    ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <meta name="description"
@@ -21,7 +28,20 @@
     <meta property="article:tag" content="facebook">
     <meta property="article:section" content="Advice">
     <!-- Custom CSS -->
-    <link href="<?= base_url() . 'assets_web/css' ?>/styles.css" rel="stylesheet">
+    <?php if ($this->session->has_userdata('set_lang')) {
+                            $set_lang = $this->session->userdata('set_lang');
+                        } else {
+                            $set_lang = 'english';
+                        }
+
+                        ?>
+    <?php if($set_lang == 'english' || $set_lang == 'russian'){ ?>
+        <link href="<?= base_url() . 'assets_web/css' ?>/styles.css" rel="stylesheet">
+
+    <?php }else{ ?>
+        <link href="<?= base_url() . 'assets_web/css' ?>/style-rtl.css" rel="stylesheet">
+
+    <?php } ?>
     <link href="<?= base_url() . 'assets_web/css' ?>/responsive.css" rel="stylesheet">
 <!--    <link href="--><?//= base_url() . 'assets_web/fontawesome/css/' ?><!--all.css" rel="stylesheet">-->
 
@@ -49,22 +69,22 @@
 <span id="message">
 
 </span>
-<script>
-    <?php if($this->session->flashdata('success') || $this->session->flashdata('error')){
+<!--<script>
+    <?php /*if($this->session->flashdata('success') || $this->session->flashdata('error')){
     $msg = $this->session->flashdata('success') ? 'success' : 'error';
     /*            print_r($this->session->flashdata());*/
-    ?>
+        ?>
     let n = new Noty({
         theme: 'metroui'
-        , text: '<?= $this->session->flashdata($msg) ?>'
+        , text: '<?/*= $this->session->flashdata($msg) */?>'
         , layout: 'topRight'
-        , type: "<?= $msg ?>"
+        , type: "<?/*= $msg */?>"
         , timeout: 1500
         , killer: true
     });
     n.show();
-    <?php } ?>
-</script>
+    <?php /*} */?>
+</script>-->
 <style>
     .jssocials-share-link:hover, .jssocials-share-link:focus, .jssocials-share-link:active {
         border: none;
@@ -98,20 +118,49 @@
                 </div>
                 <div class="nav-menus-wrapper" style="transition-property: none;">
                     <ul class="nav-menu">
-                        <li class="active"><a href="<?=base_url()?>"><?=translate_web('Home')?></a></li>
+                        <?php if ($this->session->has_userdata('set_lang')) {
+                            $set_lang = $this->session->userdata('set_lang');
+                        } else {
+                            $set_lang = 'english';
+                        }
+                        if ($set_lang == 'english') {
+                            $class_en = 'active';
+                            $class_ar = '';
+                            $class_ru = '';
+                            $lang_text=translate_web('English');
+                            $lang_img=base_url().'assets/dist/img/translate/icons8-usa-21.png';
+                        } elseif($set_lang == 'arabic') {
+                            $class_ar = 'active';
+                            $class_en = '';
+                            $class_ru = '';
+                            $lang_text=translate_web('Arabic');
+                            $lang_img=base_url().'assets/dist/img/translate/icons8-united-arab-emirates-21 (1).png';
 
-                        <li><a href="<?=base_url()?>about_us"><?=translate_web('About')?></a></li>
+                        }else{
+                            $class_ru = 'active';
+                            $class_en = '';
+                            $class_ar = '';
+                            $lang_text=translate_web('Russian');
+                            $lang_img=base_url().'assets/dist/img/translate/icons8-united-arab-emirates-21 (1).png';
 
-                        <li><a href="<?=base_url()?>projects"><?=translate_web('Projects')?></a></li>
+                        }
+                        ?>
 
-                        <li><a href="<?=base_url()?>blogs"><?=translate_web('Blog')?></a></li>
+                        <li class="<?= $this->uri->segment(1) == 'Web' || $this->uri->segment(1) == '' ? "active" : '' ?>"><a href="<?=base_url()?>"><?=translate_web('Home')?></a></li>
 
-                        <li><a href="<?=base_url()?>contact_us"><?=translate_web('Contact_Us')?></a></li>
+                        <li class="<?= $this->uri->segment(1) == 'about_us' || $this->uri->segment(1) == '' ? "active" : '' ?>"><a href="<?=base_url()?>about_us"><?=translate_web('About')?></a></li>
 
-                        <li><a href="#!"><?=translate_web('English')?> <span class="submenu-indicator"></span></a>
+                        <li class="<?= $this->uri->segment(1) == 'projects' || $this->uri->segment(1) == 'one_project' ? "active" : '' ?>"><a href="<?=base_url()?>projects"><?=translate_web('Projects')?></a></li>
+
+                        <li class="<?= $this->uri->segment(1) == 'blogs' || $this->uri->segment(1) == 'one_blogs' ? "active" : '' ?>"><a href="<?=base_url()?>blogs"><?=translate_web('Blog')?></a></li>
+
+                        <li class="<?= $this->uri->segment(1) == 'contact_us'  ? "active" : '' ?>"><a href="<?=base_url()?>contact_us"><?=translate_web('Contact_Us')?></a></li>
+
+                        <li><a ><?=$lang_text?> <span class="submenu-indicator"></span></a>
                             <ul class="nav-dropdown nav-submenu">
-                                <li><a href="#!"><?=translate_web('Arabic')?></a></li>
-                                <li><a href="#!"><?=translate_web('Russian')?></a></li>
+                                <li class="<?= $class_en ?>"><a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/english' ?>"><?=translate_web('English')?></a></li>
+                                <li class="<?= $class_ar ?>"><a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/arabic' ?>"><?=translate_web('Arabic')?></a></li>
+                                <li class="<?= $class_ru ?>"><a href="<?php echo base_url() . 'LanguageSwitcher/switchLang/russian' ?>"><?=translate_web('Russian')?></a></li>
                             </ul>
 
                         </li>
@@ -144,52 +193,88 @@
                         <div class="footer-widget">
                             <img src="<?= base_url() . 'assets_web/img' ?>/logo-light.png" class="img-footer"
                                  alt="images"/>
-                            <p>At Mada’in Properties PJSC, we exist to create innovative, boutique properties that
-                                surpass all expectations in detail, design and 5-star experiences.
-                                boutique properties that surpass all expectations in detail, design and 5-star
-                                experiences.
+                            <p>
+                                <?php if (isset($this->about_us) && (!empty($this->about_us))) {
+                                    if (isset($set_lang) && (!empty($set_lang))) {
+                                        switch ($set_lang) {
+                                            case 'arabic':
+                                                $about_us_short = 'about_us_short';
+                                                break;
+                                            case 'english':
+                                                $about_us_short = 'about_us_short_en';
+                                                break;
+                                            case 'russian':
+                                                $about_us_short = 'about_us_short_ru';
+                                                break;
+                                            default:
+                                                $about_us_short = 'about_us_short_en';
+                                                break;
+                                        }
+                                    }
+                                }
+                                ?>
+                                <?= $this->about_us->$about_us_short?>
                             </p>
                         </div>
                     </div>
                     <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
                         <div class="footer-widget">
-                            <h4 class="widget-title">Contact Info</h4>
+                            <h4 class="widget-title"><?=translate_web('Contact_Info')?></h4>
                             <div class="footer-add">
-                                <p><i class="fa-solid fa-location-dot"></i>Marina Arcade Tower - Al Naseem St - Dubai
-                                    Marina - Dubai.</p>
-                                <p><a><i class="fa-solid fa-phone"></i>+971 56 477 7666 </a></p>
-                                <p><a><i class="fa-solid fa-envelope"></i>Sales@madain.ae </a></p>
-                                <p><a><i class="fa-solid fa-envelope"></i>Info@madain.ae</a></p>
+                                <?php
+
+                                if (isset($set_lang) && (!empty($set_lang))) {
+                                    switch ($set_lang) {
+                                        case 'arabic':
+                                            $address = 'address';
+                                            break;
+                                        case 'english':
+                                            $address = 'address_en';
+                                            break;
+                                        case 'russian':
+                                            $address = 'address_ru';
+                                            break;
+                                        default:
+                                            $address = 'address_en';
+                                            break;
+                                    }
+                                }
+
+                                ?>
+                                <p><i class="fa-solid fa-location-dot"></i><?=$this->company_data->$address?></p>
+                                <p><a><i class="fa-solid fa-phone"></i>+971 <?=$this->company_data->telepon?> </a></p>
+                                <p><a><i class="fa-solid fa-envelope"></i><?=$this->company_data->email?> </a></p>
+                                <p><a><i class="fa-solid fa-envelope"></i><?=$this->company_data->email?></a></p>
                             </div>
 
                         </div>
                     </div>
                     <div class="col-lg-2 col-md-6 col-sm-6">
                         <div class="footer-widget">
-                            <h4 class="widget-title">Our Pages</h4>
+                            <h4 class="widget-title"><?=translate_web('Our_Pages')?></h4>
                             <ul class="footer-menu">
-                                <li><i class="fa-solid fa-arrow-right"></i><a href="Careers.html">Careers</a></li>
-                                <li><i class="fa-solid fa-arrow-right"></i><a href="projects.html">Projects</a></li>
-                                <li><i class="fa-solid fa-arrow-right"></i><a href="Blog.html">Blog</a></li>
-                                <li><i class="fa-solid fa-arrow-right"></i><a href="sitemap.html">Sitemap</a></li>
-                                <li><i class="fa-solid fa-arrow-right"></i><a href="contact.html">Contact Us</a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>Careers"><?=translate_web('Careers')?></a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>projects"><?=translate_web('Projects')?></a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>blogs"><?=translate_web('Blog')?></a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>sitemap"><?=translate_web('Sitemap')?></a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>contact_us"><?=translate_web('Contact_Us')?></a></li>
                             </ul>
                         </div>
                     </div>
 
                     <div class="col-lg-2 col-md-6 col-sm-6">
                         <div class="footer-widget">
-                            <h4 class="widget-title">About us</h4>
+                            <h4 class="widget-title"><?=translate_web('About_us')?></h4>
                             <ul class="footer-menu">
-                                <li><i class="fa-solid fa-arrow-right"></i><a href="about-us.html">About Us</a></li>
-                                <li><i class="fa-solid fa-arrow-right"></i><a href="about-us.html#team">Our Team</a>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>about_us"><?=translate_web('About_Us')?></a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>about_us#team"><?=translate_web('Our_Team')?></a>
                                 </li>
                                 <li><i class="fa-solid fa-arrow-right"></i><a
-                                            href="about-us.html#about-section">Mission</a></li>
+                                            href="<?=base_url()?>about_us#about-section"><?=translate_web('Our_Mission')?></a></li>
                                 <li><i class="fa-solid fa-arrow-right"></i><a
-                                            href="about-us.html#about-section">Vission</a></li>
+                                            href="<?=base_url()?>about_us#about-section"><?=translate_web('Our_Vision')?></a></li>
                                 <li><i class="fa-solid fa-arrow-right"></i><a
-                                            href="about-us.html#about-section">History</a></li>
+                                            href="<?=base_url()?>about_us#about-section"><?=translate_web('Our_Goals')?></a></li>
                             </ul>
                         </div>
                     </div>
@@ -208,10 +293,10 @@
 
                     <div class="col-lg-6 col-md-6 text-right">
                         <ul class="footer-bottom-social">
-                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
-                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                            <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                            <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                            <li><a  href="<?=$this->company_data->facebook?>" target="_blank"><i class="fab fa-facebook"></i></a></li>
+                            <li><a  href="<?=$this->company_data->twitter?>" target="_blank"><i class="fab fa-twitter"></i></a></li>
+                            <li><a  href="<?=$this->company_data->instagram?>" target="_blank"><i class="fab fa-instagram"></i></a></li>
+                            <li><a  href="<?=$this->company_data->youtube?>" target="_blank"><i class="fab fa-youtube"></i></a></li>
                         </ul>
                     </div>
 
