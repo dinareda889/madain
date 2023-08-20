@@ -83,7 +83,7 @@
             }
         </style>
     <?php } ?>
-    <link rel="stylesheet" href="<?= base_url() . 'assets/' ?>sweet_alert1/sweetalert.css">
+<!--    <link rel="stylesheet" href="--><?//= base_url() . 'assets/' ?><!--sweet_alert1/sweetalert.css">-->
     <link rel="stylesheet" href="<?= base_url() . 'assets/' ?>sweet_alert2/sweetalert2.css">
     <link rel="stylesheet" href="<?= base_url() . 'assets/' ?>sweet_alert2/sweetalert2.min.css">
 
