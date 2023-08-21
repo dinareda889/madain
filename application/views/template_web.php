@@ -41,7 +41,6 @@
     <?php }else{ ?>
         <link href="<?= base_url() . 'assets_web/css' ?>/styles.css" rel="stylesheet">
         <link href="<?= base_url() . 'assets_web/css' ?>/styles_rtl.css" rel="stylesheet">
-
     <?php } ?>
     <link href="<?= base_url() . 'assets_web/css' ?>/responsive.css" rel="stylesheet">
 <!--    <link href="--><?//= base_url() . 'assets_web/fontawesome/css/' ?><!--all.css" rel="stylesheet">-->
@@ -149,7 +148,7 @@
 
                         <li class="<?= $this->uri->segment(1) == 'Web' || $this->uri->segment(1) == '' ? "active" : '' ?>"><a href="<?=base_url()?>"><?=translate_web('Home')?></a></li>
 
-                        <li class="<?= $this->uri->segment(1) == 'about_us' || $this->uri->segment(1) == '' ? "active" : '' ?>"><a href="<?=base_url()?>about_us"><?=translate_web('About')?></a></li>
+                        <li class="<?= $this->uri->segment(1) == 'about_us' ? "active" : '' ?>"><a href="<?=base_url()?>about_us"><?=translate_web('About')?></a></li>
 
                         <li class="<?= $this->uri->segment(1) == 'projects' || $this->uri->segment(1) == 'one_project' ? "active" : '' ?>"><a href="<?=base_url()?>projects"><?=translate_web('Projects')?></a></li>
 

@@ -67,6 +67,7 @@ $route['projects/(:num)'] = "Web/projects/$1";
 $route['one_project/(:any)'] = "Web/one_project/$1";
 $route['about_us'] = 'Web/about_us';
 $route['contact_us'] = 'Web/contact_us';
+$route['sitemap'] = 'Web/sitemap';
 
 
 

@@ -1,3 +1,5 @@
+ @import url(../css/plugins/bootstrap-rtl.min.css);
+
 .nav-header,.nav-menu>li,
 .blog-page .blog-details .comment-area .all-comments article .comment-author ,
 .single-widgets.widget_thumb_post ul li .left {
