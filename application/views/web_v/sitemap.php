@@ -84,7 +84,29 @@
                                      <li><a href="project-details.html">Madain Tower</a></li>-->
                                 </ul>
                             </li>
-                            <li><a href="<?=base_url()?>Careers"><?=translate_web('Careers')?></a></li>
+                            <li><a href="<?=base_url()?>Careers"><?=translate_web('Careers')?></a>
+                                <ul class="third">
+                                    <?php if(isset($jobs) && !empty($jobs)){
+                                        foreach ($jobs as $row){ ?>
+                                            <li>
+                                                <a href="<?=base_url()?>one_project/<?=base64_encode($row->id)?>">
+                                                    <?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
+                                                        echo $row->title_en;
+                                                    }elseif($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')){
+                                                        echo $row->title_ru;
+                                                    }else{
+                                                        echo $row->title;
+                                                    }
+                                                    ?>
+                                                </a>
+                                            </li>
+                                            <?php
+                                        }
+                                    }  ?>
+                                    <!-- <li><a href="project-details.html">Madain Square</a></li>
+                                     <li><a href="project-details.html">Madain Tower</a></li>-->
+                                </ul>
+                            </li>
                             <li><a href="<?=base_url()?>contact_us"><?=translate_web('Contact')?></a></li>
                         </ul>
                     </li>

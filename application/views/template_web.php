@@ -128,20 +128,17 @@
                             $class_ar = '';
                             $class_ru = '';
                             $lang_text=translate_web('English');
-                            $lang_img=base_url().'assets/dist/img/translate/icons8-usa-21.png';
                         } elseif($set_lang == 'arabic') {
                             $class_ar = 'active';
                             $class_en = '';
                             $class_ru = '';
                             $lang_text=translate_web('Arabic');
-                            $lang_img=base_url().'assets/dist/img/translate/icons8-united-arab-emirates-21 (1).png';
 
                         }else{
                             $class_ru = 'active';
                             $class_en = '';
                             $class_ar = '';
                             $lang_text=translate_web('Russian');
-                            $lang_img=base_url().'assets/dist/img/translate/icons8-united-arab-emirates-21 (1).png';
 
                         }
                         ?>
@@ -244,7 +241,7 @@
                                 <p><i class="fa-solid fa-location-dot"></i><?=$this->company_data->$address?></p>
                                 <p><a><i class="fa-solid fa-phone"></i>+971 <?=$this->company_data->telepon?> </a></p>
                                 <p><a><i class="fa-solid fa-envelope"></i><?=$this->company_data->email?> </a></p>
-                                <p><a><i class="fa-solid fa-envelope"></i><?=$this->company_data->email?></a></p>
+                                <p><a><i class="fa-solid fa-envelope"></i><?=$this->company_data->fax?></a></p>
                             </div>
 
                         </div>
