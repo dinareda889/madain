@@ -43,7 +43,7 @@
                                     <?php if(isset($projects) && !empty($projects)){
                                         foreach ($projects as $row){ ?>
                                             <li>
-                                                <a href="<?=base_url()?>project_details/<?=base64_encode($row->id)?>">
+                                                <a href="<?=base_url()?>one_project/<?=base64_encode($row->id)?>">
                                                     <?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
                                                         echo $row->name_en;
                                                     }elseif($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')){

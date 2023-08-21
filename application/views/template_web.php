@@ -330,14 +330,14 @@
             <!-- sub -->
             <a href="<?=$this->company_data->twitter?>" target="_blank"> <i class="fa-brands fa-twitter"></i> </a>
             <!-- sub -->
-            <a href="#!" target="_blank"> <i class="fa-brands fa-tiktok"></i> </a>
+            <a href="<?=$this->company_data->tiktok?>" target="_blank"> <i class="fa-brands fa-tiktok"></i> </a>
             <!-- sub -->
             <a href="<?=$this->company_data->youtube?>" target="_blank"> <i class="fa-brands fa-youtube"></i>
                 <!-- sub -->
-                <a href="#!" target="_blank"> <i class="fa-brands fa-snapchat"></i>
+                <a href="<?=$this->company_data->snapchat?>" target="_blank"> <i class="fa-brands fa-snapchat"></i>
                 </a>
                 <!-- sub -->
-                <a href="https://www.google.com/maps/place/<?=$this->company_data->address?>" target="_blank"> <i class="fa-sharp fa-solid fa-location-dot"></i> </a>
+                <a href="https://www.google.com/maps/place/<?=$this->company_data->$address?>" target="_blank"> <i class="fa-sharp fa-solid fa-location-dot"></i> </a>
                 </span>
         </div>
     </section>

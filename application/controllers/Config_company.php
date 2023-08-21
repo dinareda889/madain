@@ -186,6 +186,8 @@ public function index() {
             $data['twitter'] = $i->post('twitter');
             $data['youtube'] = $i->post('youtube');
             $data['instagram'] = $i->post('instagram');
+            $data['snapchat'] = $i->post('snapchat');
+            $data['tiktok'] = $i->post('tiktok');
             $data['google_map'] = $i->post('google_map');
             $data['id_user'] = $this->session->userdata('id');
 

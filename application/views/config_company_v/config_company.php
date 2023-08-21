@@ -154,6 +154,14 @@
                     <label><?=translate('Youtube')?> <i class="fa fa-youtube"></i></label>
                     <input type="url" name="youtube" placeholder="https://www.youtube.com" value="<?php echo $site->youtube ?>" class="form-control">
                 </div>
+                <div class="form-group">
+                    <label><?=translate('Snapchat')?> <i class="fa fa-snapchat"></i></label>
+                    <input type="url" name="snapchat" placeholder="https://www.snapchat.com" value="<?php echo $site->snapchat ?>" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label><?=translate('Tiktok')?> <i class="fa fa-tiktok"></i></label>
+                    <input type="url" name="tiktok" placeholder="https://www.tiktok.com" value="<?php echo $site->tiktok ?>" class="form-control">
+                </div>
 
             </div>
 
