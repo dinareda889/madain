@@ -39,7 +39,8 @@
         <link href="<?= base_url() . 'assets_web/css' ?>/styles.css" rel="stylesheet">
 
     <?php }else{ ?>
-        <link href="<?= base_url() . 'assets_web/css' ?>/style-rtl.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets_web/css' ?>/styles.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets_web/css' ?>/styles_rtl.css" rel="stylesheet">
 
     <?php } ?>
     <link href="<?= base_url() . 'assets_web/css' ?>/responsive.css" rel="stylesheet">
@@ -324,20 +325,20 @@
         </a>
         <div class="subs">
             <!-- sub -->
-            <a href="#!" target="_blank"> <i class="fa-brands fa-linkedin-in"></i> </a>
+            <a href="<?=$this->company_data->facebook?>" target="_blank"> <i class="fa-brands fa-facebook"></i> </a>
             <!-- sub -->
-            <a href="#!" target="_blank"> <i class="fa-brands fa-instagram"></i> </a>
+            <a href="<?=$this->company_data->instagram?>" target="_blank"> <i class="fa-brands fa-instagram"></i> </a>
             <!-- sub -->
-            <a href="#!" target="_blank"> <i class="fa-brands fa-twitter"></i> </a>
+            <a href="<?=$this->company_data->twitter?>" target="_blank"> <i class="fa-brands fa-twitter"></i> </a>
             <!-- sub -->
             <a href="#!" target="_blank"> <i class="fa-brands fa-tiktok"></i> </a>
             <!-- sub -->
-            <a href="#!" target="_blank"> <i class="fa-brands fa-youtube"></i>
+            <a href="<?=$this->company_data->youtube?>" target="_blank"> <i class="fa-brands fa-youtube"></i>
                 <!-- sub -->
                 <a href="#!" target="_blank"> <i class="fa-brands fa-snapchat"></i>
                 </a>
                 <!-- sub -->
-                <a href="#!" target="_blank"> <i class="fa-sharp fa-solid fa-location-dot"></i> </a>
+                <a href="https://www.google.com/maps/place/<?=$this->company_data->address?>" target="_blank"> <i class="fa-sharp fa-solid fa-location-dot"></i> </a>
                 </span>
         </div>
     </section>
@@ -412,15 +413,24 @@
     <div class="ba-we-love-subscribers-wrap">
         <div class="ba-we-love-subscribers popup-ani">
             <header>
-                <h1>Contact us</h1>
-                <p>Use the form below to contact us!</p>
+                <h1><?=translate_web('Contact_us')?></h1>
+                <p><?=translate_web('Use_the_form_below_to_contact_us!')?></p>
             </header>
-            <form action="" method="post" target="popupwindow">
-                <input name="name" placeholder="Your Name" type="text" value=""><br>
-                <input name="email" placeholder="Your Email" type="email" value=""><br>
-                <input name="phone" placeholder="Your Phone" type="tel" value=""><br>
-                <textarea placeholder="Type Your Message"></textarea>
-                <input class="logo-ani" name="submit" type="submit"> <input name="uri" type="hidden"
+          <?php echo form_open('contact_us', array('target' => "popupwindow")); ?>
+                <input  type="text" name="name" placeholder="<?=translate_web('Your_name')?>" value="<?= set_value('name', '') ?>">
+            <?php if (form_error('name')) {
+                echo "<span style='color:red;text-align: right;'>" . form_error('name') . "</span>";
+            } ?>
+            <input type="email" class="form-control" name="email" placeholder="<?=translate_web('Your_email')?>" value="<?= set_value('email', '') ?>">
+            <?php if (form_error('email')) {
+                echo "<span style='color:red;text-align: right;'>" . form_error('email') . "</span>";
+            } ?>
+            <input type="number"  class="form-control" name="phone" placeholder="<?=translate_web('Your_phone')?>" value="<?= set_value('phone', '') ?>">
+            <?php if (form_error('phone')) {
+                echo "<span style='color:red;text-align: right;'>" . form_error('phone') . "</span>";
+            } ?>
+            <textarea name="message" class="form-control" placeholder=""><?= set_value('message', translate_web('Your_Message')) ?></textarea>
+            <button class="btn send-button btn-theme-light" name="add" value="add" type="submit"><?=translate_web('Send_Message')?></button><input name="uri" type="hidden"
                                                                             value="barreldotim">
             </form>
         </div>

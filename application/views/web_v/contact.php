@@ -4,16 +4,13 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 col-md-12">
-
                 <h2 class="ipt-title"><?=translate_web('Contact_us')?></h2>
                 <span class="ipn-subtitle"><?=translate_web('Please_contact_us_any_time')?></span>
-
             </div>
         </div>
     </div>
 </div>
 <!-- ============================ Page Title End ================================== -->
-
 <!-- ============================ Contact info Start ================================== -->
 <section class="bg-light">
     <div class="container">
@@ -68,11 +65,8 @@
     </div>
 </section>
 <!-- ============================ Contact info End ================================== -->
-
 <!-- CONTACT MESSAGE AREA START -->
 <div class="contact-form">
-
-
     <!-- GOOGLE MAP AREA START -->
     <div class="google-map mb-120">
         <?=$this->company_data->google_map?>
@@ -82,17 +76,14 @@
         <div class="row">
             <div class="col-lg-6 col-md-12">
                 <div class="contact-form-box" style="top: 0% !important;">
-                    <h4 class="title-2">Get A Quote</h4>
+                    <h4 class="title-2"><?=translate_web('Get_A_Quote')?></h4>
                     <?php echo form_open('contact_us', array('id' => "contact-form")); ?>
-
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="input-item">
                                     <input type="text" class="form-control" name="name" placeholder="<?=translate_web('Your_name')?>" value="<?= set_value('name', '') ?>">
                                     <?php if (form_error('name')) {
-
                                         echo "<span style='color:red;text-align: right;'>" . form_error('name') . "</span>";
-
                                     } ?>
                                 </div>
                             </div>
@@ -100,9 +91,7 @@
                                 <div class="input-item">
                                     <input type="email" class="form-control" name="email" placeholder="<?=translate_web('Your_email')?>" value="<?= set_value('email', '') ?>">
                                     <?php if (form_error('email')) {
-
                                         echo "<span style='color:red;text-align: right;'>" . form_error('email') . "</span>";
-
                                     } ?>
                                 </div>
                             </div>
@@ -110,9 +99,7 @@
                                 <div class="input-item">
                                     <input type="number"  class="form-control" name="phone" placeholder="<?=translate_web('Your_phone')?>" value="<?= set_value('phone', '') ?>">
                                     <?php if (form_error('phone')) {
-
                                         echo "<span style='color:red;text-align: right;'>" . form_error('phone') . "</span>";
-
                                     } ?>
                                 </div>
                             </div>
@@ -126,7 +113,6 @@
                             <div class="col-md-12">
                                 <div class="input-item">
                                     <button type="submit" name="add" value="add" class="btn send-button btn-theme-light rounded"><?=translate_web('Send_Message')?></button>
-
                                 </div>
                             </div>
                         </div>
@@ -135,5 +121,4 @@
             </div>
         </div>
     </div>
-
 </div>
