@@ -40,7 +40,7 @@
 
     <?php }else{ ?>
         <link href="<?= base_url() . 'assets_web/css' ?>/styles.css" rel="stylesheet">
-        <link href="<?= base_url() . 'assets_web/css' ?>/styles_rtl.css" rel="stylesheet">
+        <link href="<?= base_url() . 'assets_web/css' ?>/Style-rtl.css" rel="stylesheet">
     <?php } ?>
     <link href="<?= base_url() . 'assets_web/css' ?>/responsive.css" rel="stylesheet">
 <!--    <link href="--><?//= base_url() . 'assets_web/fontawesome/css/' ?><!--all.css" rel="stylesheet">-->

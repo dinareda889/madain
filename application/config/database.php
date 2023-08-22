@@ -74,7 +74,7 @@ $active_group = 'default';
 $query_builder = TRUE;
 
 $db['default'] = array(
-'dsn'	=> 'mysql:host=localhost;dbname=madain_db',
+'dsn'	=> 'mysql:host=localhost;dbname=madain_db_2',
 	'hostname' => 'localhost',
 	'username' => 'root',
 	'password' => '',
