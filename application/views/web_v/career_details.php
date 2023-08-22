@@ -82,7 +82,7 @@ if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
                 <div class="details-sidebar">
                     <!-- Agent Detail -->
                     <div class="sides-widget">
-                        <?php echo form_open(base_url() . 'Web/apply_job') ?>
+                        <?php echo form_open_multipart(base_url() . 'Web/apply_job') ?>
                         <input type="hidden" name="data[career_id]" value="<?= $one_career->id ?>">
 
                         <div class="sides-widget-header">
@@ -107,33 +107,36 @@ if (isset($_SESSION['site_lang']) && (!empty($_SESSION['site_lang']))) {
                             ?>
                             <div class="form-group">
                                 <label><?=translate_web('Name')?> <i class="req">*</i></label>
-                                <input type="text" name="data[name]" class="form-control" placeholder="Your Name">
+                                <input type="text" name="data[name]" class="form-control" placeholder="<?=translate_web('Your_Name')?>">
                             </div>
                             <div class="form-group">
                                 <label><?=translate_web('Email ID')?> <i class="req">*</i></label>
-                                <input type="email" name="data[email]" class="form-control" placeholder="Your Email">
+                                <input type="email" name="data[email]" class="form-control" placeholder="<?=translate_web('Your_Email')?>">
                             </div>
-                            <div class="upload-files-container">
+                            <div class="form-group">
+                                <label><?=translate_web('file_cv')?> <i class="req">*</i></label>
+                                <input type="file" name="file_cv" class="form-control" placeholder="<?=translate_web('file_cv')?>">
+                            </div>
+                            <!--<div class="upload-files-container">
                                 <div class="drag-file-area">
                                     <span class="material-icons-outlined upload-icon"> <i
                                                 class="fa-solid fa-arrow-up-from-bracket"></i> </span>
-                                    <!--                                    <h3 class="dynamic-message"> Drag & drop Your CV Here </h3>-->
                                     <label class="label"> <span class="browse-files">
 													 <input type="file" name="file_cv" class="default-file-input"/>
-													 <span class="browse-files-text"> <?=translate_web('browse_file')?></span>
+													 <span class="browse-files-text"> <?/*=translate_web('browse_file')*/?></span>
 													</span> </label>
-                                </div>
-                                <span class="cannot-upload-message">
-												 <span class="material-icons-outlined"><?=translate_web('error')?></span> <?=translate_web('select_file')?> <span
-                                            class="material-icons-outlined cancel-alert-button"><?=translate_web('cancel')?></span> </span>
+                                </div>-->
+                               <!-- <span class="cannot-upload-message">
+												 <span class="material-icons-outlined"><?/*=translate_web('error')*/?></span> <?/*=translate_web('select_file')*/?> <span
+                                            class="material-icons-outlined cancel-alert-button"><?/*=translate_web('cancel')*/?></span> </span>
                                 <div class="file-block">
                                     <div class="file-info"><span class="material-icons-outlined file-icon"></span> <span
                                                 class="file-name"> </span> | <span class="file-size">  </span></div>
-                                    <span class="material-icons remove-file-icon"><?=translate_web('delete')?></span>
+                                    <span class="material-icons remove-file-icon"><?/*=translate_web('delete')*/?></span>
                                     <div class="progress-bar"></div>
                                 </div>
-                                <button type="button" class="upload-button"> <?=translate_web('Upload')?></button>
-                            </div>
+                                <button type="button" class="upload-button"> <?/*=translate_web('Upload')*/?></button>-->
+<!--                            </div>-->
                             <button type="submit" class="btn send-button btn-md rounded full-width"><?=translate_web('Apply_Now')?></button>
                         </div>
                         <?= form_close() ?>
