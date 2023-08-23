@@ -176,7 +176,7 @@ class Jobs_m extends CI_Model
         die;*/
         $this->db->insert('career_files', $data);
     }
-    function delete_comment($table, $where_arr = false)
+    function delete_career_order($table, $where_arr = false)
     {
         if (!empty($where_arr)) {
             $this->db->where($where_arr);
