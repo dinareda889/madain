@@ -9,7 +9,7 @@ class LanguageSwitcher extends CI_Controller
         parent::__construct();
     }
     function switchLang($language = "") {
-        $language = ($language != "") ? $language : "english";
+        $language = (!empty($language)) ? $language : "english";
         $this->session->set_userdata('set_lang', $language);
         $this->session->set_userdata('site_lang', $language);
         redirect($_SERVER['HTTP_REFERER']);
