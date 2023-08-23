@@ -56,13 +56,24 @@
     <!-- /.modal-dialog -->
 </div>
 
-
+<?php
+if ($this->session->has_userdata('set_lang')) {
+    $set_lang = $this->session->userdata('set_lang');
+} else {
+    $set_lang = 'english';
+}
+if($set_lang == 'english'){
+    $lang = 'English.json';
+}else{
+    $lang = 'Arabic.json';
+}
+?>
 
 <script>
     $(document).ready(function() {
         $('#table1').DataTable({
             "language": {
-                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/English.json"
+                "url": "https://cdn.datatables.net/plug-ins/9dcbecd42ad/i18n/<?=$lang?>"
             },
             "processing": true,
             "serverSide": true,

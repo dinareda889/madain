@@ -7,6 +7,31 @@
     } else {
         $set_lang = 'english';
     }
+    if ($this->fungsi->company_data()->image) {
+        $company_image = base_url('uploads/main/' . $this->fungsi->company_data()->image);
+    } else {
+        $company_image = base_url('assets/dist/img/AdminLTELogo.png');
+    }
+
+    if ($this->fungsi->company_data()->nameweb) {
+        if ($this->session->has_userdata('set_lang')) {
+            $set_lang = $this->session->userdata('set_lang');
+        } else {
+            $set_lang = 'english';
+        }
+        if($set_lang == 'english'){
+            $company_name = $this->fungsi->company_data()->nameweb_en;
+
+        }elseif($set_lang == 'russian'){
+            $company_name = $this->fungsi->company_data()->nameweb_ru;
+
+        }else{
+            $company_name = $this->fungsi->company_data()->nameweb;
+
+        }
+    } else {
+        $company_name = 'MADA\'IN Properties';
+    }
     ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,7 +41,8 @@
     <meta name="msvalidate.01" content="D833B4C3E519991F1F6DDEB57D2EDDB6">
     <meta name="keywords"
           content="Madain Properties , Marina Arcade ,Madain Square,Madain Tower , مدائن, مدائن للعقارات,مدائن دبى,مدائن شركة">
-    <title>MADA'IN Properties</title>
+<!--    <title>MADA'IN Properties</title>-->
+    <title><?= $company_name ?></title>
 
     <link rel="canonical" href="https://engyota.github.io/madain/">
     <meta property="og:locale" content="en_US">
@@ -27,6 +53,8 @@
     <meta property="og:site_name" content="Yoko Co.">
     <meta property="article:tag" content="facebook">
     <meta property="article:section" content="Advice">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?=$company_image?>">
+
     <!-- Custom CSS -->
     <?php if ($this->session->has_userdata('set_lang')) {
                             $set_lang = $this->session->userdata('set_lang');

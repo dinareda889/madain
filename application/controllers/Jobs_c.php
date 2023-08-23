@@ -40,11 +40,11 @@ class Jobs_c extends CI_Controller
 
             <a href="#modal_details" data-toggle="modal" title="' . translate('Details') . '" 
                         onclick="get_load_details(' . $item->id . ')" class="btn btn-warning btn-sm"> 
-<a href="' . base_url() . 'Jobs_c/career_orders/' . base64_encode($item->id) . '"
-												class="btn btn-info  btn-outline">
-													<i class="icon-bubbles"></i> ' . translate('career_orders') . '
-												</a>
                          <i class="fa fa-eye" style="color: white;"></i></a>
+                         <a href="' . base_url() . 'Jobs_c/career_orders/' . base64_encode($item->id) . '"
+												class="btn btn-info  btn-outline" title="' . translate('career_orders') . '">
+													<i class="fas fa-briefcase"></i> 
+												</a>
                         <a href="' . site_url('Jobs_c/edit_jobs/' . $item->id) . '" class="btn btn-info"><i class="fa fa-pencil-alt"></i></a>
                   
                                   <a href="#" onclick=\'Swal.fire({
@@ -56,7 +56,7 @@ class Jobs_c extends CI_Controller
                                             cancelButtonText: "' . translate('Cancel') . '",
                                              }).then((result) => {
                                              if (result.isConfirmed) {
-                                            swal("' . translate('Deleted') . '!", "", "success");
+                                            Swal.fire("' . translate('Deleted') . '!", "", "success");
                                             window.location="' . base_url() . 'Jobs_c/delete_jobs/' . $item->id . '";
                                             }});\' class="btn btn-danger btn-sm">
                                             <i class="fa fa-trash"> </i></a>
