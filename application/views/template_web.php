@@ -250,7 +250,7 @@
                         <div class="footer-widget">
                             <h4 class="widget-title"><?=translate_web('Our_Pages')?></h4>
                             <ul class="footer-menu">
-                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>Careers"><?=translate_web('Careers')?></a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>careers"><?=translate_web('Careers')?></a></li>
                                 <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>projects"><?=translate_web('Projects')?></a></li>
                                 <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>blogs"><?=translate_web('Blog')?></a></li>
                                 <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>sitemap"><?=translate_web('Sitemap')?></a></li>

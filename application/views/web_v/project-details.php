@@ -1,4 +1,4 @@
-<div class=" blog-page">
+<div class=" blog-page" xmlns="http://www.w3.org/1999/html">
 
     <!-- ============================ Page Title Start================================== -->
     <div class="page-title">
@@ -197,25 +197,43 @@
                         <div class="sides-widget">
                             <div class="sides-widget-header">
                                 <div class="sides-widget-details">
-                                    <h4><a href="#">Contact Us</a></h4>
+                                    <h4><a href="<?=base_url()?>contact_us"><?=translate_web('Contact_Us')?></a></h4>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
 
                             <div class="sides-widget-body simple-form">
+
+                                <?php echo form_open('contact/'.base64_encode($one_project->id), array('id' => "contact-form")); ?>
+                                <input type="hidden" name="project_id" value="<?=$one_project->id?>">
                                 <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="text" class="form-control" placeholder="Your Email">
+                                    <label><?=translate_web('Name')?></label>
+                                    <input type="text" class="form-control" name="name" placeholder="<?=translate_web('Your_name')?>" value="<?= set_value('name', '') ?>">
+                                    <?php if (form_error('name')) {
+                                        echo "<span style='color:red;text-align: right;'>" . form_error('name') . "</span>";
+                                    } ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Phone No.</label>
-                                    <input type="text" class="form-control" placeholder="Your Phone">
+                                    <label><?=translate_web('Email')?></label>
+                                    <input type="text" class="form-control" name="email" placeholder="<?=translate_web('Your_email')?>" value="<?= set_value('email', '') ?>">
+                                    <?php if (form_error('email')) {
+                                        echo "<span style='color:red;text-align: right;'>" . form_error('email') . "</span>";
+                                    } ?>
                                 </div>
                                 <div class="form-group">
-                                    <label>Message</label>
-                                    <textarea class="form-control">Leave Your message here.</textarea>
+                                    <label><?=translate_web('Phone_No.')?></label>
+                                    <input type="text" class="form-control" name="phone" placeholder="<?=translate_web('Your_phone')?>" value="<?= set_value('phone', '') ?>">
+                                    <?php if (form_error('phone')) {
+                                        echo "<span style='color:red;text-align: right;'>" . form_error('phone') . "</span>";
+                                    } ?>
                                 </div>
-                                <button class="btn send-button btn-md rounded full-width">Send Message</button>
+                                <div class="form-group">
+                                    <label><?=translate_web('Message')?></label>
+                                    <textarea class="form-control" placeholder="<?=translate_web('Your_Message')?>">
+                                        <?= set_value('message', '') ?></textarea>
+                                </div>
+                                <button class="btn send-button btn-md rounded full-width" name="add" value="add"><?=translate_web('Send_Message')?></button>
+                            </form>
                             </div>
                         </div>
                     </div>

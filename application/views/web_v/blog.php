@@ -6,7 +6,7 @@
             <div class="col-lg-12 col-md-12">
 
                 <h2 class="ipt-title"><?= translate_web('Our_Blog') ?></h2>
-                <span class="ipn-subtitle"><?= translate_web('Our_Latest_News') ?></span>
+                <span class="ipn-subtitle"><?= translate_web('Our_Latest_Blog ') ?></span>
 
             </div>
         </div>
@@ -22,7 +22,7 @@
         <div class="row">
             <div class="col text-center">
                 <div class="sec-heading center">
-                    <h2><?= translate_web('Latest_News') ?></h2>
+                    <h2><?= translate_web('Latest_Blog ') ?></h2>
                     <p><?= translate_web('blog_sub_title') ?></p>
                 </div>
             </div>
@@ -65,7 +65,7 @@
 
                                 }
                                 ?>
-                                <a href="<?= base_url() . 'Web/one_blog/' . base64_encode($blog->id) ?>"><img
+                                <a href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>"><img
                                             src="<?= $img_url ?>" class="img-fluid"
                                             alt="images"/></a>
                             </div>
@@ -76,10 +76,10 @@
 
                             <div class="blog-body">
                                 <h4 class="bl-title"><a
-                                            href="<?= base_url() . 'Web/one_blog/' . base64_encode($blog->id) ?>"><?= $blog->$name ?></a>
+                                            href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>"><?= $blog->$name ?></a>
                                 </h4>
                                 <p><?= word_limiter($blog->$description, 30, '...') ?> </p>
-                                <a href="<?= base_url() . 'Web/one_blog/' . base64_encode($blog->id) ?>"
+                                <a href="<?= base_url() . 'one_blog/' . base64_encode($blog->id) ?>"
                                    class="bl-continue"><?= translate_web('Read_more') ?> <i
                                             class="fas fa-arrow-right"></i></a>
                             </div>

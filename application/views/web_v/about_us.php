@@ -32,7 +32,7 @@
                             }elseif($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')){
                                 echo $about_us[0]->about_us_ru;
                             }else{
-                                echo $about_us[0]->about_us_ar;
+                                echo $about_us[0]->about_us;
                             }
                             ?> </p>
                     </div>

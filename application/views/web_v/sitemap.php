@@ -5,8 +5,8 @@
         <div class="row">
             <div class="col-lg-12 col-md-12">
 
-                <h2 class="ipt-title">Our Sitemap</h2>
-                <span class="ipn-subtitle">See Our Sitemap </span>
+                <h2 class="ipt-title"><?=translate_web('Our_Sitemap')?></h2>
+                <span class="ipn-subtitle"><?=translate_web('See_Our_Sitemap')?> </span>
 
             </div>
         </div>
@@ -30,7 +30,7 @@
                 <ul class="first">
                     <li><a href="<?=base_url()?>"><?=translate_web('Home')?></a>
                         <ul class="second">
-                            <li><a href="<?=base_url()?>about_us"><?=translate_web('About')?></a>
+                            <li><a href="<?=base_url()?>about_us" target="_blank"><?=translate_web('About')?></a>
                                 <ul class="third">
                                     <li><a href="<?=base_url()?>about_us#team"><?=translate_web('Our_Team')?></a></li>
                                     <li><a href="<?=base_url()?>about_us#about-section"><?=translate_web('Mission')?></a></li>
@@ -38,7 +38,7 @@
                                     <li><a href="<?=base_url()?>about_us#about-section"><?=translate_web('Goals')?></a></li>
                                 </ul>
                             </li>
-                            <li><a href="<?=base_url()?>projects"><?=translate_web('Projects')?></a>
+                            <li><a href="<?=base_url()?>projects" target="_blank"><?=translate_web('Projects')?></a>
                                 <ul class="third">
                                     <?php if(isset($projects) && !empty($projects)){
                                         foreach ($projects as $row){ ?>
@@ -66,7 +66,7 @@
                                     <?php if(isset($blogs) && !empty($blogs)){
                                         foreach ($blogs as $row){ ?>
                                             <li>
-                                                <a href="<?=base_url()?>one_blog/<?=base64_encode($row->id)?>">
+                                                <a href="<?=base_url()?>one_blog/<?=base64_encode($row->id)?>" target="_blank">
                                                     <?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
                                                         echo $row->name_en;
                                                     }elseif($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')){
@@ -89,7 +89,7 @@
                                     <?php if(isset($jobs) && !empty($jobs)){
                                         foreach ($jobs as $row){ ?>
                                             <li>
-                                                <a href="<?=base_url()?>one_project/<?=base64_encode($row->id)?>">
+                                                <a href="<?=base_url()?>one_career/<?=base64_encode($row->id)?>" target="_blank">
                                                     <?php if ($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'english')) {
                                                         echo $row->title_en;
                                                     }elseif($this->session->userdata('site_lang') && ($this->session->userdata('site_lang') == 'russian')){

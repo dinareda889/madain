@@ -6,7 +6,7 @@
             <div class="col-lg-12 col-md-12">
 
                 <h2 class="ipt-title"><?= translate_web('Our_Careers') ?></h2>
-                <span class="ipn-subtitle"><?= translate_web('Our_Latest_Jobs') ?></span>
+                <span class="ipn-subtitle"><?= translate_web('Our_Latest_careers') ?></span>
 
             </div>
         </div>
@@ -22,8 +22,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-7 col-md-10 text-center">
                 <div class="sec-heading center">
-                    <h2><?= translate_web('Latest_Jobs') ?></h2>
-                    <p><?= translate_web('Jobs_sub_title') ?></p>
+                    <h2><?= translate_web('Latest_careers') ?></h2>
+                    <p><?= translate_web('careers_sub_title') ?></p>
                 </div>
             </div>
         </div>

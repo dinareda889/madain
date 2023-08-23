@@ -17,12 +17,9 @@
                         <th><?=translate('The_Phone_Number')?></th>
                         <th><?=translate('The_Email_Address')?></th>
                         <th><?=translate('The_Nationality')?></th>
-
                     </tr>
                     </thead>
                     <tbody>
-
-
                     </tbody>
                 </table>
             </div>
@@ -31,9 +28,7 @@
         <!-- /.card -->
     </div>
 </section>
-
 <?php
-
 if ($this->session->has_userdata('set_lang')) {
     $set_lang = $this->session->userdata('set_lang');
 } else {
@@ -41,14 +36,10 @@ if ($this->session->has_userdata('set_lang')) {
 }
 if($set_lang == 'english'){
     $lang = 'English.json';
-
 }else{
     $lang = 'Arabic.json';
-
 }
 ?>
-
-
 <script>
     $(document).ready(function() {
         $('#table1').DataTable({
@@ -65,24 +56,18 @@ if($set_lang == 'english'){
                 {
                     "targets":[2,3],
                     "className" : 'text-left'
-
                 },
                 {
                     "targets":[3,-1],
                     "className" : 'text-left',
-
-
                 },
                 {
                     "targets":[0,1,5,-1],
                     "orderable" : false,
-
-
                 },
             ],
             "dom": 'Bfrtip',
             "order" : []
         });
     } );
-
 </script>

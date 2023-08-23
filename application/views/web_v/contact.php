@@ -78,6 +78,7 @@
                 <div class="contact-form-box" style="top: 0% !important;">
                     <h4 class="title-2"><?=translate_web('Get_A_Quote')?></h4>
                     <?php echo form_open('contact_us', array('id' => "contact-form")); ?>
+
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="input-item">
