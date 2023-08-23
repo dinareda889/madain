@@ -346,28 +346,38 @@
             <div class="modal-content" id="sign-up">
                 <span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"></span>
                 <div class="modal-body">
-                    <h4 class="modal-header-title">Register Your Interset</h4>
+                    <h4 class="modal-header-title"><?=translate_web('Register_Your_Interset')?></h4>
                     <div class="login-form">
-                        <form>
-                            <div class="row">
+                        <?php echo form_open('register'); ?>
+
+                        <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <div class="input-with-icon">
-                                            <input type="text" class="form-control" placeholder="First Name">
+                                            <input type="text" class="form-control" name="f_name" placeholder="<?=translate_web('First_name')?>" value="<?= set_value('f_name', '') ?>">
+                                            <?php if (form_error('f_name')) {
+                                                echo "<span style='color:red;text-align: right;'>" . form_error('f_name') . "</span>";
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <div class="input-with-icon">
-                                            <input type="text" class="form-control" placeholder="Last Name">
+                                            <input type="text" class="form-control" name="l_name" placeholder="<?=translate_web('Last_name')?>" value="<?= set_value('l_name', '') ?>">
+                                            <?php if (form_error('l_name')) {
+                                                echo "<span style='color:red;text-align: right;'>" . form_error('l_name') . "</span>";
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <div class="input-with-icon">
-                                            <input type="email" class="form-control" placeholder="Email">
+                                            <input type="email" class="form-control" name="email" placeholder="<?=translate_web('Email')?>" value="<?= set_value('email', '') ?>">
+                                            <?php if (form_error('email')) {
+                                                echo "<span style='color:red;text-align: right;'>" . form_error('email') . "</span>";
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -375,25 +385,26 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <div class="input-with-icon">
-                                            <input type="text" class="form-control" placeholder="Phone">
+                                            <input type="number" class="form-control" name="phone" placeholder="<?=translate_web('Phone')?>" value="<?= set_value('phone', '') ?>">
+                                            <?php if (form_error('phone')) {
+                                                echo "<span style='color:red;text-align: right;'>" . form_error('phone') . "</span>";
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <div class="input-with-icon">
-                                            <select class="form-control">
-                                                <option>Nationality</option>
-                                                <option>Albanian</option>
-                                                <option>American</option>
-                                            </select>
+                                            <input type="text" class="form-control" name="nationality" placeholder="<?=translate_web('Nationality')?>" value="<?= set_value('nationality', '') ?>">
+                                            <?php if (form_error('nationality')) {
+                                                echo "<span style='color:red;text-align: right;'>" . form_error('nationality') . "</span>";
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">
-                                        Submit
+                             <div class="form-group">
+                                    <button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded" name="add" value="add">
+                                        <?=translate_web('Submit')?>
                                     </button>
                                 </div>
                             </div>
