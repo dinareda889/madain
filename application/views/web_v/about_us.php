@@ -140,7 +140,11 @@
                                 <div class="team-grid">
 
                                     <div class="teamgrid-user">
-                                        <img src="<?= base_url() . 'assets_web/img' ?>/team-1.png" alt="images" class="img-fluid" />
+                                        <img src="<?php if (!empty($row->image) && (file_exists('uploads/team/'.$row->image))) {
+                                            echo base_url() . "uploads/team/" .$row->image;
+                                        } else {
+                                            echo base_url() . 'uploads/defult_image.jpg';
+                                        } ?>" alt="images" class="img-fluid" />
                                     </div>
 
                                     <div class="teamgrid-content">
