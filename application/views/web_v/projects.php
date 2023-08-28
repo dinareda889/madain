@@ -62,7 +62,7 @@
 
                         }
                         ?>
-                        <a href="<?= base_url() . 'Web/one_project/' . base64_encode($project->id) ?>"><img src="<?= $img_url ?>" class="img-fluid"  alt="images"/></a>
+                        <a href="<?= base_url() . 'one_project/' . base64_encode($project->id) ?>"><img src="<?= $img_url ?>" class="img-fluid"  alt="images"/></a>
                     </div>
                     <div class="location-property-content">
                         <div class="lp-content-flex">
@@ -70,7 +70,7 @@
                             <span><?= word_limiter($project->$description, 20, '...') ?></span>
                         </div>
                         <div class="lp-content-right">
-                            <a href="<?= base_url() . 'Web/one_project/' . base64_encode($project->id) ?>" class="lp-property-view">
+                            <a href="<?= base_url() . 'one_project/' . base64_encode($project->id) ?>" class="lp-property-view">
                                 <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </div>

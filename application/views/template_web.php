@@ -7,6 +7,31 @@
     } else {
         $set_lang = 'english';
     }
+    if ($this->fungsi->company_data()->image) {
+        $company_image = base_url('uploads/main/' . $this->fungsi->company_data()->image);
+    } else {
+        $company_image = base_url('assets/dist/img/AdminLTELogo.png');
+    }
+
+    if ($this->fungsi->company_data()->nameweb) {
+        if ($this->session->has_userdata('set_lang')) {
+            $set_lang = $this->session->userdata('set_lang');
+        } else {
+            $set_lang = 'english';
+        }
+        if($set_lang == 'english'){
+            $company_name = $this->fungsi->company_data()->nameweb_en;
+
+        }elseif($set_lang == 'russian'){
+            $company_name = $this->fungsi->company_data()->nameweb_ru;
+
+        }else{
+            $company_name = $this->fungsi->company_data()->nameweb;
+
+        }
+    } else {
+        $company_name = 'MADA\'IN Properties';
+    }
     ?>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -16,7 +41,8 @@
     <meta name="msvalidate.01" content="D833B4C3E519991F1F6DDEB57D2EDDB6">
     <meta name="keywords"
           content="Madain Properties , Marina Arcade ,Madain Square,Madain Tower , مدائن, مدائن للعقارات,مدائن دبى,مدائن شركة">
-    <title>MADA'IN Properties</title>
+<!--    <title>MADA'IN Properties</title>-->
+    <title><?= $company_name ?></title>
 
     <link rel="canonical" href="https://engyota.github.io/madain/">
     <meta property="og:locale" content="en_US">
@@ -27,6 +53,8 @@
     <meta property="og:site_name" content="Yoko Co.">
     <meta property="article:tag" content="facebook">
     <meta property="article:section" content="Advice">
+    <link rel="icon" type="image/png" sizes="16x16" href="<?=$company_image?>">
+
     <!-- Custom CSS -->
     <?php if ($this->session->has_userdata('set_lang')) {
                             $set_lang = $this->session->userdata('set_lang');
@@ -250,7 +278,7 @@
                         <div class="footer-widget">
                             <h4 class="widget-title"><?=translate_web('Our_Pages')?></h4>
                             <ul class="footer-menu">
-                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>Careers"><?=translate_web('Careers')?></a></li>
+                                <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>careers"><?=translate_web('Careers')?></a></li>
                                 <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>projects"><?=translate_web('Projects')?></a></li>
                                 <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>blogs"><?=translate_web('Blog')?></a></li>
                                 <li><i class="fa-solid fa-arrow-right"></i><a href="<?=base_url()?>sitemap"><?=translate_web('Sitemap')?></a></li>
@@ -346,28 +374,38 @@
             <div class="modal-content" id="sign-up">
                 <span class="mod-close" data-bs-dismiss="modal" aria-hidden="true"></span>
                 <div class="modal-body">
-                    <h4 class="modal-header-title">Register Your Interset</h4>
+                    <h4 class="modal-header-title"><?=translate_web('Register_Your_Interset')?></h4>
                     <div class="login-form">
-                        <form>
-                            <div class="row">
+                        <?php echo form_open('register'); ?>
+
+                        <div class="row">
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <div class="input-with-icon">
-                                            <input type="text" class="form-control" placeholder="First Name">
+                                            <input type="text" class="form-control" name="f_name" placeholder="<?=translate_web('First_name')?>" value="<?= set_value('f_name', '') ?>">
+                                            <?php if (form_error('f_name')) {
+                                                echo "<span style='color:red;text-align: right;'>" . form_error('f_name') . "</span>";
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <div class="input-with-icon">
-                                            <input type="text" class="form-control" placeholder="Last Name">
+                                            <input type="text" class="form-control" name="l_name" placeholder="<?=translate_web('Last_name')?>" value="<?= set_value('l_name', '') ?>">
+                                            <?php if (form_error('l_name')) {
+                                                echo "<span style='color:red;text-align: right;'>" . form_error('l_name') . "</span>";
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12 col-md-12">
                                     <div class="form-group">
                                         <div class="input-with-icon">
-                                            <input type="email" class="form-control" placeholder="Email">
+                                            <input type="email" class="form-control" name="email" placeholder="<?=translate_web('Email')?>" value="<?= set_value('email', '') ?>">
+                                            <?php if (form_error('email')) {
+                                                echo "<span style='color:red;text-align: right;'>" . form_error('email') . "</span>";
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -375,25 +413,26 @@
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <div class="input-with-icon">
-                                            <input type="text" class="form-control" placeholder="Phone">
+                                            <input type="number" class="form-control" name="phone" placeholder="<?=translate_web('Phone')?>" value="<?= set_value('phone', '') ?>">
+                                            <?php if (form_error('phone')) {
+                                                echo "<span style='color:red;text-align: right;'>" . form_error('phone') . "</span>";
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
-
                                 <div class="col-lg-6 col-md-6">
                                     <div class="form-group">
                                         <div class="input-with-icon">
-                                            <select class="form-control">
-                                                <option>Nationality</option>
-                                                <option>Albanian</option>
-                                                <option>American</option>
-                                            </select>
+                                            <input type="text" class="form-control" name="nationality" placeholder="<?=translate_web('Nationality')?>" value="<?= set_value('nationality', '') ?>">
+                                            <?php if (form_error('nationality')) {
+                                                echo "<span style='color:red;text-align: right;'>" . form_error('nationality') . "</span>";
+                                            } ?>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded">
-                                        Submit
+                             <div class="form-group">
+                                    <button type="submit" class="btn btn-md full-width btn-theme-light-2 rounded" name="add" value="add">
+                                        <?=translate_web('Submit')?>
                                     </button>
                                 </div>
                             </div>

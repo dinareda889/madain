@@ -7,7 +7,7 @@
                class="nav-link <?= $this->uri->segment(1) == 'Dashboard' || $this->uri->segment(1) == '' ? "active" : '' ?>">
                 <i class="nav-icon fas fa-tachometer-alt"></i>
                 <p>
-                    <?= translate('The Main Page') ?>
+                    <?= translate('The_Main_Page') ?>
                 </p>
             </a>
         </li>
@@ -40,7 +40,7 @@
                 "active " : '' ?> ">
 
                 <i class="nav-icon fas fa-users text-warning"></i>
-                <p> <?= translate('The Users') ?> <i class="fas fa-angle-left right "></i>
+                <p> <?= translate('The_Users') ?> <i class="fas fa-angle-left right "></i>
                     <span class="badge badge-warning right"></span>
                 </p>
             </a>
@@ -50,7 +50,7 @@
                        class="nav-link  <?= $this->uri->segment(1) == 'User' && $this->uri->segment(2) == '' ? "active" : '' ?> ">
                         <i class="fas fa-users nav-icon text-info  "></i>
                         <p>
-                            <?= translate('Application Users') ?> <span
+                            <?= translate('Application_Users') ?> <span
                                     class="badge badge-warning right"><?= $this->fungsi->count_users(); ?></span>
                         </p>
                     </a>
@@ -73,7 +73,7 @@
                        class="nav-link  <?= $this->uri->segment(1) == 'Config_company' && $this->uri->segment(2) == '' ? "active" : '' ?> ">
                         <i class="fas fa-cogs nav-icon text-info  "></i>
                         <p class="text-success_">
-                            <?= translate('Company Main Data') ?>
+                            <?= translate('Company_Main_Data') ?>
                         </p>
                     </a>
                 </li>
@@ -82,7 +82,7 @@
                        class="nav-link  <?= $this->uri->segment(1) == 'About_us_c' && $this->uri->segment(2) == '' ? "active" : '' ?> ">
                         <i class="fas fa-cogs nav-icon text-info  "></i>
                         <p class="text-success_">
-                            <?= translate('About Us') ?>
+                            <?= translate('About_Us') ?>
                         </p>
                     </a>
                 </li>
@@ -117,15 +117,15 @@
                         </p>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= site_url('Translations/russian_dashboard') ?>"
-                       class="nav-link  <?= $this->uri->segment(1) == 'Translations' && $this->uri->segment(2) == 'russian_dashboard' ? "active" : '' ?> ">
+                <!--<li class="nav-item">
+                    <a href="<?/*= site_url('Translations/russian_dashboard') */?>"
+                       class="nav-link  <?/*= $this->uri->segment(1) == 'Translations' && $this->uri->segment(2) == 'russian_dashboard' ? "active" : '' */?> ">
                         <i class="fas fa-cogs nav-icon text-info  "></i>
                         <p class="text-success_">
-                            <?= translate('Translations_russian_dashboard') ?>
+                            <?/*= translate('Translations_russian_dashboard') */?>
                         </p>
                     </a>
-                </li>
+                </li>-->
 
                 <li class="nav-item">
                     <a href="<?= site_url('Translations/arabic_web') ?>"
@@ -160,14 +160,14 @@
             <a href="<?= site_url('Video_c') ?>"
                class="nav-link <?= $this->uri->segment(1) == 'Video_c' ? "active" : '' ?> ">
                 <i class="nav-icon fas fa-video text-maroon"></i>
-                <p><?= translate('Video Banner') ?></p>
+                <p><?= translate('Video_Banner') ?></p>
             </a>
         </li>
         <li class="nav-item">
             <a href="<?= site_url('Jobs_c') ?>"
                class="nav-link <?= $this->uri->segment(1) == 'Jobs_c' ? "active" : '' ?> ">
                 <i class="nav-icon fas fa-list-ol text-maroon"></i>
-                <p><?= translate('Employment Management') ?></p>
+                <p><?= translate('Employment_Management') ?></p>
             </a>
         </li>
         <!-- <li class="nav-item">
@@ -189,14 +189,14 @@
         <li class="nav-item">
             <a href="<?= site_url('News') ?>"
                class="nav-link <?= $this->uri->segment(1) == 'News' ? "active" : '' ?> ">
-                <i class="nav-icon fas fa-users text-success"></i>
+                <i class="nav-icon fas fa-list-ol text-success"></i>
                 <p><?= translate('News') ?> </p>
             </a>
         </li>
         <li class="nav-item">
             <a href="<?= site_url('Project') ?>"
                class="nav-link <?= $this->uri->segment(1) == 'Project' ? "active" : '' ?> ">
-                <i class="nav-icon fas fa-users text-success"></i>
+                <i class="nav-icon fas fa-list-ol text-success"></i>
                 <p><?= translate('Project') ?> </p>
             </a>
         </li>
@@ -281,7 +281,7 @@
                    "active " : '' ?> ">
 
                 <i class="nav-icon fas fa-envelope text-warning"></i>
-                <p> <?= translate('Messages and Complaints') ?> <i class="fas fa-angle-left right "></i>
+                <p> <?= translate('Messages_and_Complaints') ?> <i class="fas fa-angle-left right "></i>
                     <span class="badge badge-warning right"></span>
                 </p>
             </a>
@@ -290,7 +290,7 @@
                     <a href="<?= site_url('Msg/msgs') ?>"
                        class="nav-link  <?= $this->uri->segment(1) == 'Msg' && $this->uri->segment(2) == 'msgs' ? "active" : '' ?> ">
                         <i class="far fa-envelope  nav-icon  text-warning"></i>
-                        <p><?= translate('Unread Messages') ?></p>  <span
+                        <p><?= translate('Unread_Messages') ?></p>  <span
                                 class="badge badge-warning right"><?php /*$this->fungsi->count_new_msg('reading');*/ ?></span>
                     </a>
                 </li>
@@ -300,38 +300,19 @@
                     <a href="<?= site_url('Msg/msgs_read') ?>"
                        class="nav-link  <?= $this->uri->segment(1) == 'Msg' && $this->uri->segment(2) == 'msgs_read' ? "active" : '' ?> ">
                         <i class="far fa-envelope  nav-icon  text-warning"></i>
-                        <p><?= translate('Read Messages') ?></p>
+                        <p><?= translate('Read_Messages') ?></p>
                     </a>
                 </li>
             </ul>
         </li>
 
-        <!-- <li class="nav-item has-treeview  <? /*=$this->uri->segment(1) == 'Price_list/price_lists'   ?
-            "menu-open " : '' */ ?> ">
-            <a href="#" class="nav-link <? /*=($this->uri->segment(1) == 'Price_list' || $this->uri->segment(2) == 'price_lists'|| $this->uri->segment(2) == 'price_lists_read') ?
-                "active " : '' */ ?> ">
-
-                <i class="nav-icon fas fa-money-bill text-warning"></i>
-                <p> عروض الأسعار <i class="fas fa-angle-left right "></i>
-                    <span class="badge badge-warning right"></span>
-                </p>
+        <li class="nav-item">
+            <a href="<?= site_url('Register') ?>"
+               class="nav-link <?= $this->uri->segment(1) == 'Register' ? "active" : '' ?> ">
+                <i class="nav-icon fas fa-envelope text-success"></i>
+                <p><?= translate('Register_Messages') ?> </p>
             </a>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="<? /*=site_url('Price_list/price_lists')*/ ?>" class="nav-link  <? /*=$this->uri->segment(1) == 'Price_list' && $this->uri->segment(2) == 'price_lists' ?  "active" : '' */ ?> ">
-                        <i class="fas fa-money-bill nav-icon  text-warning"></i>
-                        <p>عروض الأسعار الغير مقروءة  </p>  <span class="badge badge-warning right"><? /*=$this->fungsi->count_new_price_list('reading'); */ ?></span> </a>
-                </li>
-            </ul>
-            <ul class="nav nav-treeview">
-                <li class="nav-item">
-                    <a href="<? /*=site_url('Price_list/price_lists_read')*/ ?>" class="nav-link  <? /*=$this->uri->segment(1) == 'Price_list' && $this->uri->segment(2) == 'price_lists_read' ?  "active" : '' */ ?> ">
-                        <i class="fas fa-money-bill nav-icon text-success"></i>
-                        <p>عروض الأسعار المقروءة</p>
-                    </a>
-                </li>
-            </ul>
         </li>
--->
+
     </ul>
 </nav>
